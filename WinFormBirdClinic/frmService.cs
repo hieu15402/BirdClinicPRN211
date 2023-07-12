@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WinFormBirdClinic
 {
-    public partial class frmDoctor : Form
+    public partial class frmService : Form
     {
-        public frmDoctor()
+        public frmService()
         {
             InitializeComponent();
         }

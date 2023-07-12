@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace WinFormBirdClinic
 {
-    public partial class frmDoctor : Form
+    public partial class frmBookinig : Form
     {
-        public frmDoctor()
+        public frmBookinig()
         {
             InitializeComponent();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)

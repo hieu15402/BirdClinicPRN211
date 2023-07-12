@@ -1,6 +1,6 @@
 ﻿namespace WinFormBirdClinic
 {
-    partial class frmDoctor
+    partial class frmBookinig
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDoctor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBookinig));
             label1 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
@@ -38,7 +38,6 @@
             textBox1 = new System.Windows.Forms.TextBox();
             textBox2 = new System.Windows.Forms.TextBox();
             textBox3 = new System.Windows.Forms.TextBox();
-            dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             comboBox1 = new System.Windows.Forms.ComboBox();
             dataGridView1 = new System.Windows.Forms.DataGridView();
             button1 = new System.Windows.Forms.Button();
@@ -56,6 +55,11 @@
             pictureBox5 = new System.Windows.Forms.PictureBox();
             label4 = new System.Windows.Forms.Label();
             pictureBox4 = new System.Windows.Forms.PictureBox();
+            textBox4 = new System.Windows.Forms.TextBox();
+            label6 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            textBox5 = new System.Windows.Forms.TextBox();
+            textBox6 = new System.Windows.Forms.TextBox();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
@@ -73,94 +77,87 @@
             label1.Font = new System.Drawing.Font("Segoe UI", 19.8000011F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             label1.Location = new System.Drawing.Point(549, 9);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(268, 46);
+            label1.Size = new System.Drawing.Size(301, 46);
             label1.TabIndex = 2;
-            label1.Text = "Manage Doctor";
+            label1.Text = "Manage Schedule";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label3.Location = new System.Drawing.Point(300, 75);
+            label3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label3.Location = new System.Drawing.Point(300, 58);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(127, 31);
+            label3.Size = new System.Drawing.Size(105, 25);
             label3.TabIndex = 3;
-            label3.Text = "User name";
+            label3.Text = "Booking Id";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label8.Location = new System.Drawing.Point(300, 175);
+            label8.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label8.Location = new System.Drawing.Point(300, 120);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(114, 31);
+            label8.Size = new System.Drawing.Size(70, 25);
             label8.TabIndex = 3;
-            label8.Text = "Password";
+            label8.Text = "Doctor";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label11.Location = new System.Drawing.Point(300, 275);
+            label11.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label11.Location = new System.Drawing.Point(300, 180);
             label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(119, 31);
+            label11.Size = new System.Drawing.Size(93, 25);
             label11.TabIndex = 3;
-            label11.Text = "Full name";
+            label11.Text = "Customer";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label12.Location = new System.Drawing.Point(800, 75);
+            label12.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label12.Location = new System.Drawing.Point(780, 62);
             label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(157, 31);
+            label12.Size = new System.Drawing.Size(128, 25);
             label12.TabIndex = 3;
-            label12.Text = "Date Of Birth";
+            label12.Text = "Booking Date";
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label13.Location = new System.Drawing.Point(800, 175);
+            label13.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label13.Location = new System.Drawing.Point(785, 120);
             label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(80, 31);
+            label13.Size = new System.Drawing.Size(65, 25);
             label13.TabIndex = 3;
             label13.Text = "Status";
             // 
             // textBox1
             // 
-            textBox1.Location = new System.Drawing.Point(300, 120);
+            textBox1.Location = new System.Drawing.Point(300, 86);
             textBox1.Name = "textBox1";
             textBox1.Size = new System.Drawing.Size(280, 27);
             textBox1.TabIndex = 4;
             // 
             // textBox2
             // 
-            textBox2.Location = new System.Drawing.Point(300, 220);
+            textBox2.Location = new System.Drawing.Point(300, 151);
             textBox2.Name = "textBox2";
             textBox2.Size = new System.Drawing.Size(280, 27);
             textBox2.TabIndex = 4;
             // 
             // textBox3
             // 
-            textBox3.Location = new System.Drawing.Point(300, 320);
+            textBox3.Location = new System.Drawing.Point(300, 208);
             textBox3.Name = "textBox3";
             textBox3.Size = new System.Drawing.Size(280, 27);
             textBox3.TabIndex = 4;
             // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new System.Drawing.Point(800, 120);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new System.Drawing.Size(250, 27);
-            dateTimePicker1.TabIndex = 5;
-            // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new System.Drawing.Point(800, 220);
+            comboBox1.Location = new System.Drawing.Point(780, 151);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new System.Drawing.Size(250, 28);
+            comboBox1.Size = new System.Drawing.Size(280, 28);
             comboBox1.TabIndex = 6;
             // 
             // dataGridView1
@@ -225,7 +222,7 @@
             panel1.Location = new System.Drawing.Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(261, 622);
-            panel1.TabIndex = 11;
+            panel1.TabIndex = 12;
             // 
             // label2
             // 
@@ -340,24 +337,70 @@
             pictureBox4.TabStop = false;
             pictureBox4.Click += pictureBox4_Click;
             // 
+            // textBox4
+            // 
+            textBox4.Location = new System.Drawing.Point(780, 90);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new System.Drawing.Size(280, 27);
+            textBox4.TabIndex = 13;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label6.Location = new System.Drawing.Point(785, 181);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(74, 25);
+            label6.TabIndex = 14;
+            label6.Text = "Service";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label10.Location = new System.Drawing.Point(305, 248);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(41, 25);
+            label10.TabIndex = 16;
+            label10.Text = "Fee";
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new System.Drawing.Point(300, 276);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new System.Drawing.Size(280, 27);
+            textBox5.TabIndex = 17;
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new System.Drawing.Point(780, 212);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new System.Drawing.Size(280, 27);
+            textBox6.TabIndex = 18;
+            // 
             // pictureBox1
             // 
             pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new System.Drawing.Point(1156, 0);
+            pictureBox1.Location = new System.Drawing.Point(1160, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(31, 34);
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 13;
+            pictureBox1.TabIndex = 19;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // frmDoctor
+            // frmBookinig
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.SystemColors.ControlLight;
             ClientSize = new System.Drawing.Size(1190, 620);
             Controls.Add(pictureBox1);
+            Controls.Add(textBox6);
+            Controls.Add(textBox5);
+            Controls.Add(label10);
+            Controls.Add(label6);
+            Controls.Add(textBox4);
             Controls.Add(panel1);
             Controls.Add(button4);
             Controls.Add(button3);
@@ -365,7 +408,6 @@
             Controls.Add(button1);
             Controls.Add(dataGridView1);
             Controls.Add(comboBox1);
-            Controls.Add(dateTimePicker1);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
@@ -376,7 +418,7 @@
             Controls.Add(label3);
             Controls.Add(label1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            Name = "frmDoctor";
+            Name = "frmBookinig";
             Text = "frmDoctor";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
@@ -401,7 +443,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
@@ -419,6 +460,11 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

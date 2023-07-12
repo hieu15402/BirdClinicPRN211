@@ -1,6 +1,6 @@
 ﻿namespace WinFormBirdClinic
 {
-    partial class frmDoctor
+    partial class frmCustomer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDoctor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCustomer));
             label1 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
@@ -73,9 +73,9 @@
             label1.Font = new System.Drawing.Font("Segoe UI", 19.8000011F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             label1.Location = new System.Drawing.Point(549, 9);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(268, 46);
+            label1.Size = new System.Drawing.Size(312, 46);
             label1.TabIndex = 2;
-            label1.Text = "Manage Doctor";
+            label1.Text = "Manage Customer";
             // 
             // label3
             // 
@@ -343,15 +343,15 @@
             // pictureBox1
             // 
             pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new System.Drawing.Point(1156, 0);
+            pictureBox1.Location = new System.Drawing.Point(1158, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(31, 34);
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 13;
+            pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // frmDoctor
+            // frmCustomer
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -376,7 +376,7 @@
             Controls.Add(label3);
             Controls.Add(label1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            Name = "frmDoctor";
+            Name = "frmCustomer";
             Text = "frmDoctor";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);

@@ -227,6 +227,7 @@
             Controls.Add(label1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Name = "frmHome";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "frmHome";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);

@@ -137,6 +137,7 @@
 			// 
 			// txtPassword
 			// 
+			txtPassword.Enabled = false;
 			txtPassword.Location = new System.Drawing.Point(300, 220);
 			txtPassword.Name = "txtPassword";
 			txtPassword.Size = new System.Drawing.Size(280, 27);
@@ -144,6 +145,7 @@
 			// 
 			// txtFullName
 			// 
+			txtFullName.Enabled = false;
 			txtFullName.Location = new System.Drawing.Point(300, 320);
 			txtFullName.Name = "txtFullName";
 			txtFullName.Size = new System.Drawing.Size(280, 27);
@@ -179,6 +181,7 @@
 			// 
 			// button3
 			// 
+			button3.Enabled = false;
 			button3.Location = new System.Drawing.Point(910, 312);
 			button3.Name = "button3";
 			button3.Size = new System.Drawing.Size(94, 29);
@@ -188,6 +191,7 @@
 			// 
 			// button4
 			// 
+			button4.Enabled = false;
 			button4.Location = new System.Drawing.Point(1040, 312);
 			button4.Name = "button4";
 			button4.Size = new System.Drawing.Size(94, 29);
@@ -339,6 +343,7 @@
 			// 
 			// txtStatus
 			// 
+			txtStatus.Enabled = false;
 			txtStatus.Location = new System.Drawing.Point(800, 220);
 			txtStatus.Name = "txtStatus";
 			txtStatus.Size = new System.Drawing.Size(280, 27);
@@ -346,6 +351,7 @@
 			// 
 			// dtpBirth
 			// 
+			dtpBirth.Enabled = false;
 			dtpBirth.Location = new System.Drawing.Point(800, 118);
 			dtpBirth.Name = "dtpBirth";
 			dtpBirth.Size = new System.Drawing.Size(250, 27);
@@ -378,6 +384,7 @@
 			FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			Name = "frmCustomer";
 			Text = "frmDoctor";
+			Load += frmCustomer_Load;
 			((System.ComponentModel.ISupportInitialize)dgvCustomer).EndInit();
 			panel1.ResumeLayout(false);
 			panel1.PerformLayout();

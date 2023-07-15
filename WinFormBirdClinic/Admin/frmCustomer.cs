@@ -26,7 +26,7 @@ namespace WinFormBirdClinic
         {
             frmDoctor doctor = new frmDoctor();
             doctor.StartPosition = FormStartPosition.CenterScreen;
-            doctor.Show();
+            doctor.ShowDialog();
             this.Close();
         }
 
@@ -34,7 +34,7 @@ namespace WinFormBirdClinic
         {
             frmService service = new frmService();
             service.StartPosition = FormStartPosition.CenterScreen;
-            service.Show();
+            service.ShowDialog();
             this.Close();
         }
 
@@ -42,15 +42,15 @@ namespace WinFormBirdClinic
         {
             frmCustomer customer = new frmCustomer();
             customer.StartPosition = FormStartPosition.CenterScreen;
-            customer.Show();
+            customer.ShowDialog();
             this.Close();
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
-            frmBookinig frmBookinig = new frmBookinig();
+            frmBooking frmBookinig = new frmBooking();
             frmBookinig.StartPosition = FormStartPosition.CenterScreen;
-            frmBookinig.Show();
+            frmBookinig.ShowDialog();
             this.Close();
         }
     }

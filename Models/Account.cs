@@ -9,7 +9,8 @@ namespace Models
     {
         public Account()
         {
-            Patients = new HashSet<Patient>();
+            Bookings = new HashSet<Booking>();
+            PatientBirds = new HashSet<PatientBird>();
         }
 
         public string Username { get; set; }
@@ -20,6 +21,7 @@ namespace Models
         public bool Status { get; set; }
 
         public virtual Role Role { get; set; }
-        public virtual ICollection<Patient> Patients { get; set; }
+        public virtual ICollection<Booking> Bookings { get; set; }
+        public virtual ICollection<PatientBird> PatientBirds { get; set; }
     }
 }

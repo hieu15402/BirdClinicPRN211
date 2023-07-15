@@ -9,12 +9,12 @@ namespace Models
     {
         public Species()
         {
-            Patients = new HashSet<Patient>();
+            PatientBirds = new HashSet<PatientBird>();
         }
 
         public int SpeciesId { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<Patient> Patients { get; set; }
+        public virtual ICollection<PatientBird> PatientBirds { get; set; }
     }
 }

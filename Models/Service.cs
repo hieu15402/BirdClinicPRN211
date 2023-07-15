@@ -10,6 +10,7 @@ namespace Models
         public Service()
         {
             Bookings = new HashSet<Booking>();
+            ServiceMores = new HashSet<ServiceMore>();
         }
 
         public int ServiceId { get; set; }
@@ -18,5 +19,6 @@ namespace Models
         public bool? Status { get; set; }
 
         public virtual ICollection<Booking> Bookings { get; set; }
+        public virtual ICollection<ServiceMore> ServiceMores { get; set; }
     }
 }

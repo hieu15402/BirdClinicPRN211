@@ -19,9 +19,11 @@ namespace Models
 
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Booking> Bookings { get; set; }
-        public virtual DbSet<Patient> Patients { get; set; }
+        public virtual DbSet<MedicalRecord> MedicalRecords { get; set; }
+        public virtual DbSet<PatientBird> PatientBirds { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Service> Services { get; set; }
+        public virtual DbSet<ServiceMore> ServiceMores { get; set; }
         public virtual DbSet<Species> Species { get; set; }
         public virtual DbSet<StatusBooking> StatusBookings { get; set; }
 
@@ -96,14 +98,19 @@ namespace Models
 
                 entity.Property(e => e.UsernameCustomer)
                     .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(15)
                     .HasColumnName("username_customer")
                     .IsFixedLength(true);
 
                 entity.Property(e => e.UsernameDoctor)
-                    .HasMaxLength(50)
+                    .HasMaxLength(15)
                     .HasColumnName("username_doctor")
                     .IsFixedLength(true);
+
+                entity.HasOne(d => d.Patiend)
+                    .WithMany(p => p.Bookings)
+                    .HasForeignKey(d => d.PatiendId)
+                    .HasConstraintName("FK_Booking_PatientBird");
 
                 entity.HasOne(d => d.Service)
                     .WithMany(p => p.Bookings)
@@ -116,13 +123,48 @@ namespace Models
                     .HasForeignKey(d => d.StatusId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Booking_Status_Booking");
+
+                entity.HasOne(d => d.UsernameCustomerNavigation)
+                    .WithMany(p => p.Bookings)
+                    .HasForeignKey(d => d.UsernameCustomer)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Booking_Account");
             });
 
-            modelBuilder.Entity<Patient>(entity =>
+            modelBuilder.Entity<MedicalRecord>(entity =>
             {
-                entity.ToTable("Patient");
+                entity.HasKey(e => e.RecordId);
+
+                entity.ToTable("MedicalRecord");
+
+                entity.Property(e => e.RecordId).HasColumnName("record_id");
+
+                entity.Property(e => e.BookingId).HasColumnName("booking_id");
+
+                entity.Property(e => e.PatientId).HasColumnName("patient_id");
+
+                entity.Property(e => e.TotalFee).HasColumnName("total_fee");
+            });
+
+            modelBuilder.Entity<PatientBird>(entity =>
+            {
+                entity.HasKey(e => e.PatientId)
+                    .HasName("PK_Patient");
+
+                entity.ToTable("PatientBird");
 
                 entity.Property(e => e.PatientId).HasColumnName("patientId");
+
+                entity.Property(e => e.Age).HasColumnName("age");
+
+                entity.Property(e => e.BirdName)
+                    .HasMaxLength(10)
+                    .HasColumnName("bird_name")
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Gender).HasColumnName("gender");
+
+                entity.Property(e => e.Height).HasColumnName("height");
 
                 entity.Property(e => e.SpeciesId).HasColumnName("species_id");
 
@@ -134,14 +176,16 @@ namespace Models
                     .HasColumnName("username")
                     .IsFixedLength(true);
 
+                entity.Property(e => e.Weight).HasColumnName("weight");
+
                 entity.HasOne(d => d.Species)
-                    .WithMany(p => p.Patients)
+                    .WithMany(p => p.PatientBirds)
                     .HasForeignKey(d => d.SpeciesId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Patient_Species");
 
                 entity.HasOne(d => d.UsernameNavigation)
-                    .WithMany(p => p.Patients)
+                    .WithMany(p => p.PatientBirds)
                     .HasForeignKey(d => d.Username)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Patient_Account");
@@ -175,6 +219,31 @@ namespace Models
                     .IsFixedLength(true);
 
                 entity.Property(e => e.Status).HasColumnName("status");
+            });
+
+            modelBuilder.Entity<ServiceMore>(entity =>
+            {
+                entity.HasKey(e => new { e.RecordId, e.ServiceId });
+
+                entity.ToTable("ServiceMore");
+
+                entity.Property(e => e.RecordId).HasColumnName("record_id");
+
+                entity.Property(e => e.ServiceId).HasColumnName("service_id");
+
+                entity.Property(e => e.Fee).HasColumnName("fee");
+
+                entity.HasOne(d => d.Record)
+                    .WithMany(p => p.ServiceMores)
+                    .HasForeignKey(d => d.RecordId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ServiceMore_MedicalRecord");
+
+                entity.HasOne(d => d.Service)
+                    .WithMany(p => p.ServiceMores)
+                    .HasForeignKey(d => d.ServiceId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ServiceMore_Service");
             });
 
             modelBuilder.Entity<Species>(entity =>

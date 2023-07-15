@@ -10,14 +10,13 @@ using System.Windows.Forms;
 
 namespace WinFormBirdClinic.User
 {
-    public partial class frmUserService : Form
+    public partial class frmUserBird : Form
     {
-        public frmUserService()
+        public frmUserBird()
         {
             InitializeComponent();
         }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             Close();
         }
@@ -54,7 +53,7 @@ namespace WinFormBirdClinic.User
             this.Close();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pictureBox3_Click(object sender, EventArgs e)
         {
             frmUserBird frmUserBird = new frmUserBird();
             frmUserBird.StartPosition = FormStartPosition.CenterScreen;

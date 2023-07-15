@@ -378,7 +378,6 @@
 			FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			Name = "frmCustomer";
 			Text = "frmDoctor";
-			Load += frmCustomer_Load;
 			((System.ComponentModel.ISupportInitialize)dgvCustomer).EndInit();
 			panel1.ResumeLayout(false);
 			panel1.PerformLayout();

@@ -30,21 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserBill));
             label1 = new System.Windows.Forms.Label();
-            label3 = new System.Windows.Forms.Label();
-            label8 = new System.Windows.Forms.Label();
-            label11 = new System.Windows.Forms.Label();
-            label12 = new System.Windows.Forms.Label();
-            textBox1 = new System.Windows.Forms.TextBox();
-            textBox2 = new System.Windows.Forms.TextBox();
-            textBox3 = new System.Windows.Forms.TextBox();
-            dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             dataGridView1 = new System.Windows.Forms.DataGridView();
             button1 = new System.Windows.Forms.Button();
             pictureBox1 = new System.Windows.Forms.PictureBox();
-            textBox4 = new System.Windows.Forms.TextBox();
-            label6 = new System.Windows.Forms.Label();
             panel1 = new System.Windows.Forms.Panel();
+            label10 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
+            pictureBox3 = new System.Windows.Forms.PictureBox();
             pictureBox6 = new System.Windows.Forms.PictureBox();
             label4 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
@@ -57,6 +49,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
@@ -68,93 +61,25 @@
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Segoe UI", 19.8000011F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(549, 9);
+            label1.Location = new System.Drawing.Point(655, 0);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(72, 46);
             label1.TabIndex = 2;
             label1.Text = "Bill";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label3.Location = new System.Drawing.Point(300, 75);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(153, 31);
-            label3.TabIndex = 3;
-            label3.Text = "Doctor name";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label8.Location = new System.Drawing.Point(300, 175);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(91, 31);
-            label8.TabIndex = 3;
-            label8.Text = "Service";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label11.Location = new System.Drawing.Point(800, 175);
-            label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(124, 31);
-            label11.TabIndex = 3;
-            label11.Text = "Bird name";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label12.Location = new System.Drawing.Point(800, 75);
-            label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(161, 31);
-            label12.TabIndex = 3;
-            label12.Text = "Booking Date";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new System.Drawing.Point(300, 120);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(280, 27);
-            textBox1.TabIndex = 4;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new System.Drawing.Point(300, 220);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new System.Drawing.Size(280, 27);
-            textBox2.TabIndex = 4;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new System.Drawing.Point(800, 220);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new System.Drawing.Size(280, 27);
-            textBox3.TabIndex = 4;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new System.Drawing.Point(800, 120);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new System.Drawing.Size(280, 27);
-            dateTimePicker1.TabIndex = 5;
-            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new System.Drawing.Point(291, 364);
+            dataGridView1.Location = new System.Drawing.Point(267, 168);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new System.Drawing.Size(887, 244);
+            dataGridView1.Size = new System.Drawing.Size(911, 417);
             dataGridView1.TabIndex = 7;
             // 
             // button1
             // 
-            button1.Location = new System.Drawing.Point(986, 312);
+            button1.Location = new System.Drawing.Point(1084, 112);
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(94, 29);
             button1.TabIndex = 8;
@@ -172,27 +97,12 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // textBox4
-            // 
-            textBox4.Location = new System.Drawing.Point(300, 312);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new System.Drawing.Size(280, 27);
-            textBox4.TabIndex = 16;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label6.Location = new System.Drawing.Point(300, 267);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(50, 31);
-            label6.TabIndex = 15;
-            label6.Text = "Fee";
-            // 
             // panel1
             // 
             panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            panel1.Controls.Add(label10);
             panel1.Controls.Add(label2);
+            panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(pictureBox6);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label9);
@@ -207,6 +117,18 @@
             panel1.Size = new System.Drawing.Size(261, 622);
             panel1.TabIndex = 17;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            label10.Font = new System.Drawing.Font("HP Simplified", 17.9999981F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label10.ForeColor = System.Drawing.Color.Black;
+            label10.Location = new System.Drawing.Point(114, 452);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(67, 36);
+            label10.TabIndex = 19;
+            label10.Text = "Bird";
+            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -218,6 +140,17 @@
             label2.Size = new System.Drawing.Size(56, 36);
             label2.TabIndex = 5;
             label2.Text = "Bill";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (System.Drawing.Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new System.Drawing.Point(12, 412);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new System.Drawing.Size(89, 77);
+            pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 18;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // pictureBox6
             // 
@@ -328,19 +261,9 @@
             BackColor = System.Drawing.SystemColors.ControlLight;
             ClientSize = new System.Drawing.Size(1190, 620);
             Controls.Add(panel1);
-            Controls.Add(textBox4);
-            Controls.Add(label6);
             Controls.Add(pictureBox1);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(label11);
-            Controls.Add(label12);
-            Controls.Add(label8);
-            Controls.Add(label3);
             Controls.Add(label1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Name = "frmUserBill";
@@ -349,6 +272,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
@@ -360,19 +284,9 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox6;
@@ -384,5 +298,7 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

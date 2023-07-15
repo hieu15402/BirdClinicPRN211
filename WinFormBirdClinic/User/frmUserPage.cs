@@ -53,5 +53,13 @@ namespace WinFormBirdClinic.User
             frmUserBill.ShowDialog();
             this.Close();
         }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            frmUserBird frmUserBird = new frmUserBird();
+            frmUserBird.StartPosition = FormStartPosition.CenterScreen;
+            frmUserBird.ShowDialog();
+            this.Close();
+        }
     }
 }

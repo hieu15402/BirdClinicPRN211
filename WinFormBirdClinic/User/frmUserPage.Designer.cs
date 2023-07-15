@@ -32,7 +32,9 @@
             label1 = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             panel1 = new System.Windows.Forms.Panel();
+            label6 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
+            pictureBox8 = new System.Windows.Forms.PictureBox();
             pictureBox6 = new System.Windows.Forms.PictureBox();
             label2 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
@@ -45,6 +47,7 @@
             pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
@@ -76,7 +79,9 @@
             // panel1
             // 
             panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            panel1.Controls.Add(label6);
             panel1.Controls.Add(label3);
+            panel1.Controls.Add(pictureBox8);
             panel1.Controls.Add(pictureBox6);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label9);
@@ -91,6 +96,18 @@
             panel1.Size = new System.Drawing.Size(261, 622);
             panel1.TabIndex = 11;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            label6.Font = new System.Drawing.Font("HP Simplified", 17.9999981F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label6.ForeColor = System.Drawing.Color.Black;
+            label6.Location = new System.Drawing.Point(114, 453);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(67, 36);
+            label6.TabIndex = 13;
+            label6.Text = "Bird";
+            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -102,6 +119,17 @@
             label3.Size = new System.Drawing.Size(56, 36);
             label3.TabIndex = 5;
             label3.Text = "Bill";
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.Image = (System.Drawing.Image)resources.GetObject("pictureBox8.Image");
+            pictureBox8.Location = new System.Drawing.Point(12, 412);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new System.Drawing.Size(89, 77);
+            pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox8.TabIndex = 12;
+            pictureBox8.TabStop = false;
+            pictureBox8.Click += pictureBox8_Click;
             // 
             // pictureBox6
             // 
@@ -232,6 +260,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
@@ -257,5 +286,7 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox8;
     }
 }

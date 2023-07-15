@@ -10,5 +10,7 @@ namespace Repositories
 	public interface IServiceRepository
 	{
 		List<Service> getAllService();
+		void UpdateService(Service service);
+		void CreateService(Service service);
 	}
 }

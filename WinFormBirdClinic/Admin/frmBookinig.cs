@@ -61,6 +61,8 @@ namespace WinFormBirdClinic
 		private void frmBooking_Load(object sender, EventArgs e)
 		{
 			LoadBooking(repo.getAllBooking());
+			var b = repo.GetBookingbyID(int.Parse(txtBookingId.Text));
+			LoadStatusBooking(b.StatusId);
 		}
 		public void LoadBooking(List<Booking> list)
 		{
@@ -75,22 +77,72 @@ namespace WinFormBirdClinic
 				txtFee.DataBindings.Clear();
 				txtPatientName.DataBindings.Clear();
 				txtService.DataBindings.Clear();
-				txtStatus.DataBindings.Clear();
+				cbStatus.DataBindings.Clear();
 				dtpBooking.DataBindings.Clear();
 
-				txtBookingId.DataBindings.Add("Text",source,"BookingId");
+				txtBookingId.DataBindings.Add("Text", source, "BookingId");
 				txtCustomer.DataBindings.Add("Text", source, "UsernameCustomer");
 				txtDoctor.DataBindings.Add("Text", source, "UsernameDoctor");
 				txtFee.DataBindings.Add("Text", source, "Fee");
 				txtPatientName.DataBindings.Add("Text", source, "Patiend.BirdName");
 				txtService.DataBindings.Add("Text", source, "Service.ServiceName");
-				txtStatus.DataBindings.Add("Text", source, "Status.Name");
+				cbStatus.DataBindings.Add("Text", source, "Status.Name");
 				dtpBooking.DataBindings.Add("Text", source, "BookingDate");
 
 				dgvBooking.DataSource = null;
 				dgvBooking.DataSource = source;
 
-			}catch (Exception ex) { }
+			}
+			catch (Exception ex) { }
+		}
+		public void LoadStatusBooking(int id)
+		{
+			try
+			{
+				if (id == 1)
+				{
+					var list = repo.getStatusBooking();
+					cbStatus.DataSource = list;
+					cbStatus.DisplayMember = "Name";
+					cbStatus.ValueMember = "StatusId";
+				}
+				else
+				{
+					var list = repo.GetStatusBooking(id);
+					cbStatus.DataSource = list;
+					cbStatus.DisplayMember = "Name";
+					cbStatus.ValueMember = "StatusId";
+				}
+
+			}
+			catch (Exception ex)
+			{
+				throw new Exception(ex.Message);
+			}
+
+		}
+
+		private void btnUpdate_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				var b = repo.GetBookingbyID(int.Parse(txtBookingId.Text));
+				b.StatusId = int.Parse(cbStatus.SelectedValue.ToString());
+				repo.UpdateBooking(b);
+				LoadBooking(repo.getAllBooking());
+			}
+			catch (Exception ex)
+			{
+				throw new Exception(ex.Message);
+			}
+
+		}
+
+		private void dgvBooking_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			var b = repo.GetBookingbyID(int.Parse(txtBookingId.Text));
+			LoadStatusBooking(b.StatusId);
+
 		}
 	}
 }

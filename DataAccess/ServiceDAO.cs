@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,15 +15,46 @@ namespace DataAccess
 			var list = new List<Service>();
 			try
 			{
-				using(var context = new BirdClinicContext())
+				using (var context = new BirdClinicContext())
 				{
 					list = context.Services.ToList();
 				}
-			}catch (Exception ex)
+			}
+			catch (Exception ex)
 			{
 
 			}
 			return list;
+		}
+		public static void UpdateService(Service service)
+		{
+			try
+			{
+				using (var context = new BirdClinicContext())
+				{
+					context.Entry<Service>(service).State = EntityState.Modified;
+					context.SaveChanges();
+				}
+			}
+			catch (Exception ex)
+			{
+
+			}
+		}
+		public static void CreateService(Service service)
+		{
+			try
+			{
+				using (var context = new BirdClinicContext())
+				{
+					context.Services.Add(service);
+					context.SaveChanges();
+				}
+			}
+			catch (Exception e)
+			{
+				throw new Exception(e.Message);
+			}
 		}
 	}
 }

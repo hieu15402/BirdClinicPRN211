@@ -14,6 +14,7 @@ namespace Models
         public string UsernameCustomer { get; set; }
         public int ServiceId { get; set; }
         public double? Fee { get; set; }
+        public int? PatiendId { get; set; }
 
         public virtual Service Service { get; set; }
         public virtual StatusBooking Status { get; set; }

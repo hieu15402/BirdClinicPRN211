@@ -38,7 +38,6 @@
 			txtUserName = new System.Windows.Forms.TextBox();
 			txtPassword = new System.Windows.Forms.TextBox();
 			txtFullName = new System.Windows.Forms.TextBox();
-			cbStatus = new System.Windows.Forms.ComboBox();
 			dgvDoctor = new System.Windows.Forms.DataGridView();
 			button1 = new System.Windows.Forms.Button();
 			button2 = new System.Windows.Forms.Button();
@@ -56,7 +55,8 @@
 			label4 = new System.Windows.Forms.Label();
 			pictureBox4 = new System.Windows.Forms.PictureBox();
 			pictureBox1 = new System.Windows.Forms.PictureBox();
-			txtBirth = new System.Windows.Forms.TextBox();
+			txtStatus = new System.Windows.Forms.TextBox();
+			dtpBirth = new System.Windows.Forms.DateTimePicker();
 			((System.ComponentModel.ISupportInitialize)dgvDoctor).BeginInit();
 			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -129,6 +129,7 @@
 			// 
 			// txtUserName
 			// 
+			txtUserName.Enabled = false;
 			txtUserName.Location = new System.Drawing.Point(300, 120);
 			txtUserName.Name = "txtUserName";
 			txtUserName.Size = new System.Drawing.Size(280, 27);
@@ -147,14 +148,6 @@
 			txtFullName.Name = "txtFullName";
 			txtFullName.Size = new System.Drawing.Size(280, 27);
 			txtFullName.TabIndex = 4;
-			// 
-			// cbStatus
-			// 
-			cbStatus.FormattingEnabled = true;
-			cbStatus.Location = new System.Drawing.Point(800, 220);
-			cbStatus.Name = "cbStatus";
-			cbStatus.Size = new System.Drawing.Size(250, 28);
-			cbStatus.TabIndex = 6;
 			// 
 			// dgvDoctor
 			// 
@@ -344,12 +337,19 @@
 			pictureBox1.TabStop = false;
 			pictureBox1.Click += pictureBox1_Click;
 			// 
-			// txtBirth
+			// txtStatus
 			// 
-			txtBirth.Location = new System.Drawing.Point(800, 120);
-			txtBirth.Name = "txtBirth";
-			txtBirth.Size = new System.Drawing.Size(280, 27);
-			txtBirth.TabIndex = 14;
+			txtStatus.Location = new System.Drawing.Point(800, 220);
+			txtStatus.Name = "txtStatus";
+			txtStatus.Size = new System.Drawing.Size(280, 27);
+			txtStatus.TabIndex = 15;
+			// 
+			// dtpBirth
+			// 
+			dtpBirth.Location = new System.Drawing.Point(800, 118);
+			dtpBirth.Name = "dtpBirth";
+			dtpBirth.Size = new System.Drawing.Size(280, 27);
+			dtpBirth.TabIndex = 16;
 			// 
 			// frmDoctor
 			// 
@@ -357,7 +357,8 @@
 			AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			BackColor = System.Drawing.SystemColors.ControlLight;
 			ClientSize = new System.Drawing.Size(1190, 620);
-			Controls.Add(txtBirth);
+			Controls.Add(dtpBirth);
+			Controls.Add(txtStatus);
 			Controls.Add(pictureBox1);
 			Controls.Add(panel1);
 			Controls.Add(button4);
@@ -365,7 +366,6 @@
 			Controls.Add(button2);
 			Controls.Add(button1);
 			Controls.Add(dgvDoctor);
-			Controls.Add(cbStatus);
 			Controls.Add(txtFullName);
 			Controls.Add(txtPassword);
 			Controls.Add(txtUserName);
@@ -378,6 +378,7 @@
 			FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			Name = "frmDoctor";
 			Text = "frmDoctor";
+			Load += frmDoctor_Load;
 			((System.ComponentModel.ISupportInitialize)dgvDoctor).EndInit();
 			panel1.ResumeLayout(false);
 			panel1.PerformLayout();
@@ -401,7 +402,6 @@
 		private System.Windows.Forms.TextBox txtUserName;
 		private System.Windows.Forms.TextBox txtPassword;
 		private System.Windows.Forms.TextBox txtFullName;
-		private System.Windows.Forms.ComboBox cbStatus;
 		private System.Windows.Forms.DataGridView dgvDoctor;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Button button2;
@@ -419,6 +419,7 @@
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.PictureBox pictureBox4;
 		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.TextBox txtBirth;
+		private System.Windows.Forms.TextBox txtStatus;
+		private System.Windows.Forms.DateTimePicker dtpBirth;
 	}
 }

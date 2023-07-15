@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Models;
+using Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,6 +55,37 @@ namespace WinFormBirdClinic
 			frmBookinig.StartPosition = FormStartPosition.CenterScreen;
 			frmBookinig.Show();
 			this.Close();
+		}
+
+		private void frmDoctor_Load(object sender, EventArgs e)
+		{
+			LoadDoctorList(repo.GetAccountsByRole(3));
+		}
+		IAccountRepository repo = new AccountRepository();
+		BindingSource source;
+		public void LoadDoctorList(List<Account> list)
+		{
+			try
+			{
+				source = new BindingSource();
+				source.DataSource = list;
+
+				dtpBirth.DataBindings.Clear();
+				txtFullName.DataBindings.Clear();
+				txtPassword.DataBindings.Clear();
+				txtUserName.DataBindings.Clear();
+				txtStatus.DataBindings.Clear();
+
+				dtpBirth.DataBindings.Add("Text", source, "DateOfBirth");
+				txtFullName.DataBindings.Add("Text", source, "Name");
+				txtPassword.DataBindings.Add("Text", source, "Password");
+				txtUserName.DataBindings.Add("Text", source, "Username");
+				txtStatus.DataBindings.Add("Text", source, "Status");
+				dgvDoctor.DataSource = null;
+				dgvDoctor.DataSource = source;
+
+			}
+			catch (Exception ex) { }
 		}
 	}
 }

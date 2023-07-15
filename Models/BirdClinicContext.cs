@@ -1,8 +1,6 @@
 ﻿using System;
-using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.Extensions.Configuration;
 
 #nullable disable
 
@@ -27,21 +25,16 @@ namespace Models
         public virtual DbSet<Species> Species { get; set; }
         public virtual DbSet<StatusBooking> StatusBookings { get; set; }
 
-		string GetConnectionString()
-		{
-			IConfiguration configuration = new ConfigurationBuilder()
-					.SetBasePath(Directory.GetCurrentDirectory())
-					.AddJsonFile("appsettings.json", true, true).Build();
-			return configuration["ConnectionStrings:DefaultConnectionString"];
-		}
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Server=(local);uid=sa;pwd=12345;database=BirdClinic;TrustServerCertificate=True");
+            }
+        }
 
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-		{
-			optionsBuilder.UseSqlServer(GetConnectionString());
-		}
-
-
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
@@ -52,7 +45,7 @@ namespace Models
                 entity.ToTable("Account");
 
                 entity.Property(e => e.Username)
-                    .HasMaxLength(50)
+                    .HasMaxLength(15)
                     .HasColumnName("username")
                     .IsFixedLength(true);
 
@@ -62,7 +55,7 @@ namespace Models
 
                 entity.Property(e => e.Name)
                     .IsRequired()
-                    .HasMaxLength(100)
+                    .HasMaxLength(25)
                     .HasColumnName("name")
                     .IsFixedLength(true);
 
@@ -94,6 +87,8 @@ namespace Models
                     .HasColumnName("booking_date");
 
                 entity.Property(e => e.Fee).HasColumnName("fee");
+
+                entity.Property(e => e.PatiendId).HasColumnName("patiendId");
 
                 entity.Property(e => e.ServiceId).HasColumnName("service_id");
 
@@ -135,7 +130,7 @@ namespace Models
 
                 entity.Property(e => e.Username)
                     .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(15)
                     .HasColumnName("username")
                     .IsFixedLength(true);
 

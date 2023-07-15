@@ -39,10 +39,10 @@
 			txtPassword = new System.Windows.Forms.TextBox();
 			txtFullName = new System.Windows.Forms.TextBox();
 			dgvDoctor = new System.Windows.Forms.DataGridView();
-			button1 = new System.Windows.Forms.Button();
-			button2 = new System.Windows.Forms.Button();
-			button3 = new System.Windows.Forms.Button();
-			button4 = new System.Windows.Forms.Button();
+			btnUpdate = new System.Windows.Forms.Button();
+			btnCreate = new System.Windows.Forms.Button();
+			btnSave = new System.Windows.Forms.Button();
+			btnCancel = new System.Windows.Forms.Button();
 			panel1 = new System.Windows.Forms.Panel();
 			label2 = new System.Windows.Forms.Label();
 			label9 = new System.Windows.Forms.Label();
@@ -137,7 +137,6 @@
 			// 
 			// txtPassword
 			// 
-			txtPassword.Enabled = false;
 			txtPassword.Location = new System.Drawing.Point(300, 220);
 			txtPassword.Name = "txtPassword";
 			txtPassword.Size = new System.Drawing.Size(280, 27);
@@ -145,7 +144,6 @@
 			// 
 			// txtFullName
 			// 
-			txtFullName.Enabled = false;
 			txtFullName.Location = new System.Drawing.Point(300, 320);
 			txtFullName.Name = "txtFullName";
 			txtFullName.Size = new System.Drawing.Size(280, 27);
@@ -161,43 +159,47 @@
 			dgvDoctor.Size = new System.Drawing.Size(887, 244);
 			dgvDoctor.TabIndex = 7;
 			// 
-			// button1
+			// btnUpdate
 			// 
-			button1.Location = new System.Drawing.Point(650, 312);
-			button1.Name = "button1";
-			button1.Size = new System.Drawing.Size(94, 29);
-			button1.TabIndex = 8;
-			button1.Text = "Update";
-			button1.UseVisualStyleBackColor = true;
+			btnUpdate.Location = new System.Drawing.Point(650, 312);
+			btnUpdate.Name = "btnUpdate";
+			btnUpdate.Size = new System.Drawing.Size(94, 29);
+			btnUpdate.TabIndex = 8;
+			btnUpdate.Text = "Update";
+			btnUpdate.UseVisualStyleBackColor = true;
+			btnUpdate.Click += btnUpdate_Click;
 			// 
-			// button2
+			// btnCreate
 			// 
-			button2.Location = new System.Drawing.Point(780, 312);
-			button2.Name = "button2";
-			button2.Size = new System.Drawing.Size(94, 29);
-			button2.TabIndex = 8;
-			button2.Text = "Create";
-			button2.UseVisualStyleBackColor = true;
+			btnCreate.Location = new System.Drawing.Point(780, 312);
+			btnCreate.Name = "btnCreate";
+			btnCreate.Size = new System.Drawing.Size(94, 29);
+			btnCreate.TabIndex = 8;
+			btnCreate.Text = "Create";
+			btnCreate.UseVisualStyleBackColor = true;
+			btnCreate.Click += btnCreate_Click;
 			// 
-			// button3
+			// btnSave
 			// 
-			button3.Enabled = false;
-			button3.Location = new System.Drawing.Point(910, 312);
-			button3.Name = "button3";
-			button3.Size = new System.Drawing.Size(94, 29);
-			button3.TabIndex = 8;
-			button3.Text = "Save";
-			button3.UseVisualStyleBackColor = true;
+			btnSave.Enabled = false;
+			btnSave.Location = new System.Drawing.Point(910, 312);
+			btnSave.Name = "btnSave";
+			btnSave.Size = new System.Drawing.Size(94, 29);
+			btnSave.TabIndex = 8;
+			btnSave.Text = "Save";
+			btnSave.UseVisualStyleBackColor = true;
+			btnSave.Click += btnSave_Click;
 			// 
-			// button4
+			// btnCancel
 			// 
-			button4.Enabled = false;
-			button4.Location = new System.Drawing.Point(1040, 312);
-			button4.Name = "button4";
-			button4.Size = new System.Drawing.Size(94, 29);
-			button4.TabIndex = 8;
-			button4.Text = "Cancel";
-			button4.UseVisualStyleBackColor = true;
+			btnCancel.Enabled = false;
+			btnCancel.Location = new System.Drawing.Point(1040, 312);
+			btnCancel.Name = "btnCancel";
+			btnCancel.Size = new System.Drawing.Size(94, 29);
+			btnCancel.TabIndex = 8;
+			btnCancel.Text = "Cancel";
+			btnCancel.UseVisualStyleBackColor = true;
+			btnCancel.Click += btnCancel_Click;
 			// 
 			// panel1
 			// 
@@ -351,11 +353,11 @@
 			// 
 			// dtpBirth
 			// 
-			dtpBirth.Enabled = false;
 			dtpBirth.Location = new System.Drawing.Point(800, 118);
 			dtpBirth.Name = "dtpBirth";
 			dtpBirth.Size = new System.Drawing.Size(280, 27);
 			dtpBirth.TabIndex = 16;
+			dtpBirth.Value = new System.DateTime(2023, 7, 15, 0, 0, 0, 0);
 			// 
 			// frmDoctor
 			// 
@@ -367,10 +369,10 @@
 			Controls.Add(txtStatus);
 			Controls.Add(pictureBox1);
 			Controls.Add(panel1);
-			Controls.Add(button4);
-			Controls.Add(button3);
-			Controls.Add(button2);
-			Controls.Add(button1);
+			Controls.Add(btnCancel);
+			Controls.Add(btnSave);
+			Controls.Add(btnCreate);
+			Controls.Add(btnUpdate);
 			Controls.Add(dgvDoctor);
 			Controls.Add(txtFullName);
 			Controls.Add(txtPassword);
@@ -409,10 +411,10 @@
 		private System.Windows.Forms.TextBox txtPassword;
 		private System.Windows.Forms.TextBox txtFullName;
 		private System.Windows.Forms.DataGridView dgvDoctor;
-		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.Button btnUpdate;
+		private System.Windows.Forms.Button btnCreate;
+		private System.Windows.Forms.Button btnSave;
+		private System.Windows.Forms.Button btnCancel;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label9;

@@ -16,7 +16,7 @@ namespace Models
         public int ServiceId { get; set; }
         public string ServiceName { get; set; }
         public double Fee { get; set; }
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
 
         public virtual ICollection<Booking> Bookings { get; set; }
         public virtual ICollection<ServiceMore> ServiceMores { get; set; }

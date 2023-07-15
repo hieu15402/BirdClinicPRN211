@@ -10,5 +10,10 @@ namespace Repositories
 	public interface IBookingRepository
 	{
 		List<Booking> getAllBooking();
+		void UpdateBooking(Booking booking);
+		List<StatusBooking> getStatusBooking();
+		List<StatusBooking> GetStatusBooking(int id);
+		int getStatusByBookingID(int id);
+		Booking GetBookingbyID(int id);
 	}
 }

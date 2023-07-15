@@ -83,5 +83,83 @@ namespace WinFormBirdClinic
 			}
 			catch (Exception ex) { }
 		}
+
+		private void btnUpdate_Click(object sender, EventArgs e)
+		{
+			btnSave.Enabled = false;
+
+			
+			if (txtFee.Text == "" || txtServiceName.Text == "" )
+			{
+				MessageBox.Show("All fields are required!");
+			}
+			else
+			{
+				var p = new Service
+				{
+					Fee = double.Parse(txtFee.Text),
+					ServiceName = txtServiceName.Text,
+					Status = bool.Parse(txtStatus.Text),
+					ServiceId = int.Parse(txtServiceId.Text),
+				};
+				repo.UpdateService(p);
+				LoadService(repo.getAllService());
+			}
+
+		}
+
+		private void btnCancel_Click(object sender, EventArgs e)
+		{
+			btnCreate.Enabled = true;
+			btnSave.Enabled = false;
+			btnUpdate.Enabled = true;
+			btnCancel.Enabled = false;
+
+			txtServiceId.Enabled = false;
+			LoadService(repo.getAllService());
+		}
+
+		private void btnSave_Click(object sender, EventArgs e)
+		{
+			if (txtFee.Text == "" || txtServiceName.Text == "")
+			{
+				MessageBox.Show("All fields are required!");
+			}
+			else
+			{
+				var p = new Service
+				{
+					ServiceName = txtServiceName.Text,
+					Fee = float.Parse(txtFee.Text),
+					Status = true,
+				};
+				repo.CreateService(p);
+				LoadService(repo.getAllService());
+			}
+
+
+		}
+
+		private void btnCreate_Click(object sender, EventArgs e)
+		{
+			txtFee.DataBindings.Clear();
+			txtServiceId.DataBindings.Clear();
+			txtServiceName.DataBindings.Clear();
+			
+			ClearText();
+			btnCreate.Enabled = false;
+			btnCancel.Enabled = true;
+			btnSave.Enabled = true;
+			txtStatus.Enabled = false;
+
+		}
+		public void ClearText()
+		{
+			txtFee.Text = string.Empty;
+			txtServiceId.Text = string.Empty;
+			txtStatus.Text = string.Empty;
+			txtServiceName.Text = string.Empty;
+
+		}
 	}
 }

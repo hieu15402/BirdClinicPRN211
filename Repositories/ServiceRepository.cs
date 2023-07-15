@@ -11,5 +11,7 @@ namespace Repositories
 	public class ServiceRepository : IServiceRepository
 	{
 		public List<Service> getAllService() => ServiceDAO.getAllService();
+		public void UpdateService(Service service) => ServiceDAO.UpdateService(service);
+		public void CreateService(Service service)=> ServiceDAO.CreateService(service);
 	}
 }

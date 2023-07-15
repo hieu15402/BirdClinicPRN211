@@ -39,9 +39,7 @@
 			txtDoctor = new System.Windows.Forms.TextBox();
 			txtCustomer = new System.Windows.Forms.TextBox();
 			dgvBooking = new System.Windows.Forms.DataGridView();
-			button1 = new System.Windows.Forms.Button();
-			button3 = new System.Windows.Forms.Button();
-			button4 = new System.Windows.Forms.Button();
+			btnUpdate = new System.Windows.Forms.Button();
 			panel1 = new System.Windows.Forms.Panel();
 			label2 = new System.Windows.Forms.Label();
 			label9 = new System.Windows.Forms.Label();
@@ -59,9 +57,9 @@
 			txtService = new System.Windows.Forms.TextBox();
 			pictureBox1 = new System.Windows.Forms.PictureBox();
 			dtpBooking = new System.Windows.Forms.DateTimePicker();
-			txtStatus = new System.Windows.Forms.TextBox();
 			txtPatientName = new System.Windows.Forms.TextBox();
 			label14 = new System.Windows.Forms.Label();
+			cbStatus = new System.Windows.Forms.ComboBox();
 			((System.ComponentModel.ISupportInitialize)dgvBooking).BeginInit();
 			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -165,35 +163,17 @@
 			dgvBooking.RowTemplate.Height = 29;
 			dgvBooking.Size = new System.Drawing.Size(887, 244);
 			dgvBooking.TabIndex = 7;
+			dgvBooking.CellMouseClick += dgvBooking_CellMouseClick;
 			// 
-			// button1
+			// btnUpdate
 			// 
-			button1.Location = new System.Drawing.Point(650, 312);
-			button1.Name = "button1";
-			button1.Size = new System.Drawing.Size(94, 29);
-			button1.TabIndex = 8;
-			button1.Text = "Update";
-			button1.UseVisualStyleBackColor = true;
-			// 
-			// button3
-			// 
-			button3.Enabled = false;
-			button3.Location = new System.Drawing.Point(855, 312);
-			button3.Name = "button3";
-			button3.Size = new System.Drawing.Size(94, 29);
-			button3.TabIndex = 8;
-			button3.Text = "Save";
-			button3.UseVisualStyleBackColor = true;
-			// 
-			// button4
-			// 
-			button4.Enabled = false;
-			button4.Location = new System.Drawing.Point(1040, 312);
-			button4.Name = "button4";
-			button4.Size = new System.Drawing.Size(94, 29);
-			button4.TabIndex = 8;
-			button4.Text = "Cancel";
-			button4.UseVisualStyleBackColor = true;
+			btnUpdate.Location = new System.Drawing.Point(966, 312);
+			btnUpdate.Name = "btnUpdate";
+			btnUpdate.Size = new System.Drawing.Size(94, 29);
+			btnUpdate.TabIndex = 8;
+			btnUpdate.Text = "Update";
+			btnUpdate.UseVisualStyleBackColor = true;
+			btnUpdate.Click += btnUpdate_Click;
 			// 
 			// panel1
 			// 
@@ -381,14 +361,6 @@
 			dtpBooking.Size = new System.Drawing.Size(280, 27);
 			dtpBooking.TabIndex = 20;
 			// 
-			// txtStatus
-			// 
-			txtStatus.Enabled = false;
-			txtStatus.Location = new System.Drawing.Point(785, 148);
-			txtStatus.Name = "txtStatus";
-			txtStatus.Size = new System.Drawing.Size(280, 27);
-			txtStatus.TabIndex = 21;
-			// 
 			// txtPatientName
 			// 
 			txtPatientName.Enabled = false;
@@ -407,15 +379,23 @@
 			label14.TabIndex = 22;
 			label14.Text = "Patient Name";
 			// 
+			// cbStatus
+			// 
+			cbStatus.FormattingEnabled = true;
+			cbStatus.Location = new System.Drawing.Point(780, 151);
+			cbStatus.Name = "cbStatus";
+			cbStatus.Size = new System.Drawing.Size(280, 28);
+			cbStatus.TabIndex = 24;
+			// 
 			// frmBooking
 			// 
 			AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			BackColor = System.Drawing.SystemColors.ControlLight;
 			ClientSize = new System.Drawing.Size(1190, 620);
+			Controls.Add(cbStatus);
 			Controls.Add(txtPatientName);
 			Controls.Add(label14);
-			Controls.Add(txtStatus);
 			Controls.Add(dtpBooking);
 			Controls.Add(pictureBox1);
 			Controls.Add(txtService);
@@ -423,9 +403,7 @@
 			Controls.Add(label10);
 			Controls.Add(label6);
 			Controls.Add(panel1);
-			Controls.Add(button4);
-			Controls.Add(button3);
-			Controls.Add(button1);
+			Controls.Add(btnUpdate);
 			Controls.Add(dgvBooking);
 			Controls.Add(txtCustomer);
 			Controls.Add(txtDoctor);
@@ -464,9 +442,7 @@
 		private System.Windows.Forms.TextBox txtDoctor;
 		private System.Windows.Forms.TextBox txtCustomer;
 		private System.Windows.Forms.DataGridView dgvBooking;
-		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.Button btnUpdate;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label9;
@@ -484,8 +460,8 @@
 		private System.Windows.Forms.TextBox txtService;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.DateTimePicker dtpBooking;
-		private System.Windows.Forms.TextBox txtStatus;
 		private System.Windows.Forms.TextBox txtPatientName;
 		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.ComboBox cbStatus;
 	}
 }

@@ -34,11 +34,11 @@
 			label8 = new System.Windows.Forms.Label();
 			label11 = new System.Windows.Forms.Label();
 			label12 = new System.Windows.Forms.Label();
-			textBox1 = new System.Windows.Forms.TextBox();
-			textBox2 = new System.Windows.Forms.TextBox();
-			textBox3 = new System.Windows.Forms.TextBox();
-			dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-			button1 = new System.Windows.Forms.Button();
+			txtUserName = new System.Windows.Forms.TextBox();
+			txtPassword = new System.Windows.Forms.TextBox();
+			txtFullName = new System.Windows.Forms.TextBox();
+			dtpBirth = new System.Windows.Forms.DateTimePicker();
+			btnUpdate = new System.Windows.Forms.Button();
 			pictureBox1 = new System.Windows.Forms.PictureBox();
 			panel1 = new System.Windows.Forms.Panel();
 			label6 = new System.Windows.Forms.Label();
@@ -53,6 +53,10 @@
 			pictureBox7 = new System.Windows.Forms.PictureBox();
 			pictureBox5 = new System.Windows.Forms.PictureBox();
 			pictureBox4 = new System.Windows.Forms.PictureBox();
+			txtPhone = new System.Windows.Forms.TextBox();
+			label10 = new System.Windows.Forms.Label();
+			label13 = new System.Windows.Forms.Label();
+			cbGender = new System.Windows.Forms.ComboBox();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -67,7 +71,7 @@
 			// 
 			label1.AutoSize = true;
 			label1.Font = new System.Drawing.Font("Segoe UI", 19.8000011F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			label1.Location = new System.Drawing.Point(549, 9);
+			label1.Location = new System.Drawing.Point(632, 9);
 			label1.Name = "label1";
 			label1.Size = new System.Drawing.Size(126, 46);
 			label1.TabIndex = 2;
@@ -113,42 +117,44 @@
 			label12.TabIndex = 3;
 			label12.Text = "Date Of Birth";
 			// 
-			// textBox1
+			// txtUserName
 			// 
-			textBox1.Location = new System.Drawing.Point(300, 120);
-			textBox1.Name = "textBox1";
-			textBox1.Size = new System.Drawing.Size(280, 27);
-			textBox1.TabIndex = 4;
+			txtUserName.Enabled = false;
+			txtUserName.Location = new System.Drawing.Point(300, 120);
+			txtUserName.Name = "txtUserName";
+			txtUserName.Size = new System.Drawing.Size(280, 27);
+			txtUserName.TabIndex = 4;
 			// 
-			// textBox2
+			// txtPassword
 			// 
-			textBox2.Location = new System.Drawing.Point(300, 262);
-			textBox2.Name = "textBox2";
-			textBox2.Size = new System.Drawing.Size(280, 27);
-			textBox2.TabIndex = 4;
+			txtPassword.Location = new System.Drawing.Point(300, 262);
+			txtPassword.Name = "txtPassword";
+			txtPassword.Size = new System.Drawing.Size(280, 27);
+			txtPassword.TabIndex = 4;
 			// 
-			// textBox3
+			// txtFullName
 			// 
-			textBox3.Location = new System.Drawing.Point(800, 262);
-			textBox3.Name = "textBox3";
-			textBox3.Size = new System.Drawing.Size(280, 27);
-			textBox3.TabIndex = 4;
+			txtFullName.Location = new System.Drawing.Point(800, 262);
+			txtFullName.Name = "txtFullName";
+			txtFullName.Size = new System.Drawing.Size(280, 27);
+			txtFullName.TabIndex = 4;
 			// 
-			// dateTimePicker1
+			// dtpBirth
 			// 
-			dateTimePicker1.Location = new System.Drawing.Point(800, 120);
-			dateTimePicker1.Name = "dateTimePicker1";
-			dateTimePicker1.Size = new System.Drawing.Size(280, 27);
-			dateTimePicker1.TabIndex = 5;
+			dtpBirth.Location = new System.Drawing.Point(800, 120);
+			dtpBirth.Name = "dtpBirth";
+			dtpBirth.Size = new System.Drawing.Size(280, 27);
+			dtpBirth.TabIndex = 5;
 			// 
-			// button1
+			// btnUpdate
 			// 
-			button1.Location = new System.Drawing.Point(664, 579);
-			button1.Name = "button1";
-			button1.Size = new System.Drawing.Size(94, 29);
-			button1.TabIndex = 8;
-			button1.Text = "Update";
-			button1.UseVisualStyleBackColor = true;
+			btnUpdate.Location = new System.Drawing.Point(650, 579);
+			btnUpdate.Name = "btnUpdate";
+			btnUpdate.Size = new System.Drawing.Size(94, 29);
+			btnUpdate.TabIndex = 8;
+			btnUpdate.Text = "Update";
+			btnUpdate.UseVisualStyleBackColor = true;
+			btnUpdate.Click += btnUpdate_Click;
 			// 
 			// pictureBox1
 			// 
@@ -318,19 +324,58 @@
 			pictureBox4.TabStop = false;
 			pictureBox4.Click += pictureBox4_Click;
 			// 
+			// txtPhone
+			// 
+			txtPhone.Location = new System.Drawing.Point(300, 412);
+			txtPhone.Name = "txtPhone";
+			txtPhone.Size = new System.Drawing.Size(280, 27);
+			txtPhone.TabIndex = 15;
+			// 
+			// label10
+			// 
+			label10.AutoSize = true;
+			label10.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			label10.Location = new System.Drawing.Point(300, 362);
+			label10.Name = "label10";
+			label10.Size = new System.Drawing.Size(82, 31);
+			label10.TabIndex = 14;
+			label10.Text = "Phone";
+			// 
+			// label13
+			// 
+			label13.AutoSize = true;
+			label13.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			label13.Location = new System.Drawing.Point(800, 362);
+			label13.Name = "label13";
+			label13.Size = new System.Drawing.Size(91, 31);
+			label13.TabIndex = 16;
+			label13.Text = "Gender";
+			// 
+			// cbGender
+			// 
+			cbGender.FormattingEnabled = true;
+			cbGender.Location = new System.Drawing.Point(800, 412);
+			cbGender.Name = "cbGender";
+			cbGender.Size = new System.Drawing.Size(280, 28);
+			cbGender.TabIndex = 17;
+			// 
 			// frmUserProfile
 			// 
 			AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			BackColor = System.Drawing.SystemColors.ControlLight;
 			ClientSize = new System.Drawing.Size(1190, 620);
+			Controls.Add(cbGender);
+			Controls.Add(label13);
+			Controls.Add(txtPhone);
+			Controls.Add(label10);
 			Controls.Add(panel1);
 			Controls.Add(pictureBox1);
-			Controls.Add(button1);
-			Controls.Add(dateTimePicker1);
-			Controls.Add(textBox3);
-			Controls.Add(textBox2);
-			Controls.Add(textBox1);
+			Controls.Add(btnUpdate);
+			Controls.Add(dtpBirth);
+			Controls.Add(txtFullName);
+			Controls.Add(txtPassword);
+			Controls.Add(txtUserName);
 			Controls.Add(label11);
 			Controls.Add(label12);
 			Controls.Add(label8);
@@ -339,6 +384,7 @@
 			FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			Name = "frmUserProfile";
 			Text = "frmDoctor";
+			Load += frmUserProfile_Load;
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			panel1.ResumeLayout(false);
 			panel1.PerformLayout();
@@ -358,11 +404,11 @@
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.DateTimePicker dateTimePicker1;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.TextBox txtUserName;
+		private System.Windows.Forms.TextBox txtPassword;
+		private System.Windows.Forms.TextBox txtFullName;
+		private System.Windows.Forms.DateTimePicker dtpBirth;
+		private System.Windows.Forms.Button btnUpdate;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Label label2;
@@ -377,5 +423,9 @@
 		private System.Windows.Forms.PictureBox pictureBox4;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.PictureBox pictureBox3;
+		private System.Windows.Forms.TextBox txtPhone;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.ComboBox cbGender;
 	}
 }

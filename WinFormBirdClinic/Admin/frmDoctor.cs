@@ -102,7 +102,6 @@ namespace WinFormBirdClinic
 
 		private void btnUpdate_Click(object sender, EventArgs e)
 		{
-			btnSave.Enabled = false;
 
 			DateTime selectDate = dtpBirth.Value;
 			string Date = selectDate.ToString("yyyy/MM/dd HH:mm:ss");

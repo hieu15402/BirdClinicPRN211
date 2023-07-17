@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Models;
+using Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -77,6 +79,71 @@ namespace WinFormBirdClinic.User
 			frmUserBird.StartPosition = FormStartPosition.CenterScreen;
 			frmUserBird.ShowDialog();
 			this.Close();
+		}
+		IAccountRepository repo = new AccountRepository();
+		BindingSource source;
+		private void frmUserProfile_Load(object sender, EventArgs e)
+		{
+			LoadGender();
+			LoadInfo(repo.Login(Username));
+		}
+		public void LoadInfo(Account account)
+		{
+			try
+			{
+				source = new BindingSource();
+				source.DataSource = account;
+
+				dtpBirth.DataBindings.Clear();
+				txtFullName.DataBindings.Clear();
+				txtPassword.DataBindings.Clear();
+				txtUserName.DataBindings.Clear();
+				txtPhone.DataBindings.Clear();
+				cbGender.DataBindings.Clear();
+
+				dtpBirth.DataBindings.Add("Text", source, "DateOfBirth");
+				txtFullName.DataBindings.Add("Text", source, "Name");
+				txtPassword.DataBindings.Add("Text", source, "Password");
+				txtUserName.DataBindings.Add("Text", source, "Username");
+				txtPhone.DataBindings.Add("Text", source, "Phone");
+				cbGender.DataBindings.Add("Text", source, "GenderNavigation.GenderName");
+
+
+			}
+			catch (Exception ex) { }
+		}
+		private void LoadGender()
+		{
+			var gender = repo.Gender();
+			cbGender.DataSource = gender;
+			cbGender.DisplayMember = "GenderName";
+			cbGender.ValueMember = "Gender1";
+		}
+
+		private void btnUpdate_Click(object sender, EventArgs e)
+		{
+			DateTime selectDate = dtpBirth.Value;
+			string Date = selectDate.ToString("yyyy/MM/dd HH:mm:ss");
+			if (txtFullName.Text == "" || txtPassword.Text == "" || txtUserName.Text == "")
+			{
+				MessageBox.Show("All fields are required!");
+			}
+			else
+			{
+				var p = new Account
+				{
+					Name = txtFullName.Text.Trim(),
+					RoleId = 1,
+					Status = true,
+					Username = txtUserName.Text.Trim(),
+					DateOfBirth = DateTime.Parse(Date),
+					Password = txtPassword.Text.Trim(),
+					Gender = int.Parse(cbGender.SelectedValue.ToString()),
+					Phone = txtPhone.Text,
+				};
+				repo.UpdateAccount(p);
+				LoadInfo(repo.Login(Username));
+			}
 		}
 	}
 }

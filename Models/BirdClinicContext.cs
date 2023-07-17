@@ -205,6 +205,11 @@ namespace Models
 
                 entity.Property(e => e.Weight).HasColumnName("weight");
 
+                entity.HasOne(d => d.GenderNavigation)
+                    .WithMany(p => p.PatientBirds)
+                    .HasForeignKey(d => d.Gender)
+                    .HasConstraintName("FK_PatientBird_Gender");
+
                 entity.HasOne(d => d.Species)
                     .WithMany(p => p.PatientBirds)
                     .HasForeignKey(d => d.SpeciesId)

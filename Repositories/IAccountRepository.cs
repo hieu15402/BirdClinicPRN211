@@ -13,5 +13,6 @@ namespace Repositories
 		void UpdateAccount(Account account);
 		void CreateAccount(Account account);
 		Account Login(string username);
+		List<Gender> Gender();
 	}
 }

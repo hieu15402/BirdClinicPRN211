@@ -17,7 +17,7 @@ namespace DataAccess
 			{
 				using (var context = new BirdClinicContext())
 				{
-					list = context.Accounts.Where(r => r.RoleId == roleId).ToList();
+					list = context.Accounts.Include(f => f.GenderNavigation).Where(r => r.RoleId == roleId).ToList();
 				}
 			}
 			catch (Exception ex)
@@ -65,6 +65,21 @@ namespace DataAccess
 				throw new Exception(e.Message);
 			}
 			return account;
+		}
+		public static List<Gender> Gender()
+		{
+			var list = new List<Gender>();
+			try
+			{
+				using(var context = new BirdClinicContext())
+				{
+					list = context.Genders.ToList();
+				}
+			}catch(Exception e)
+			{
+
+			}
+			return list;
 		}
 	}
 }

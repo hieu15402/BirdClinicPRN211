@@ -14,5 +14,6 @@ namespace Repositories
 		public void UpdateAccount(Account account) => AccountDAO.UpdateAccount(account) ;
 		public void CreateAccount(Account account) => AccountDAO.CreateAccount(account);
 		public  Account Login(string username) => AccountDAO.Login(username) ;
+		public List<Gender> Gender() => AccountDAO.Gender() ;
 	}
 }

@@ -9,6 +9,8 @@ namespace Models
     {
         public Account()
         {
+            Bookings = new HashSet<Booking>();
+            PatientBirds = new HashSet<PatientBird>();
             RegistrationSchedules = new HashSet<RegistrationSchedule>();
         }
 
@@ -23,6 +25,8 @@ namespace Models
 
         public virtual Gender GenderNavigation { get; set; }
         public virtual Role Role { get; set; }
+        public virtual ICollection<Booking> Bookings { get; set; }
+        public virtual ICollection<PatientBird> PatientBirds { get; set; }
         public virtual ICollection<RegistrationSchedule> RegistrationSchedules { get; set; }
     }
 }

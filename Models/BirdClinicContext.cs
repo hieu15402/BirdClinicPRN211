@@ -234,6 +234,28 @@ namespace Models
                     .HasConstraintName("FK_RegistrationSchedule_Account");
             });
 
+            modelBuilder.Entity<RegistrationSchedule>(entity =>
+            {
+                entity.HasKey(e => new { e.Username, e.Date });
+
+                entity.ToTable("RegistrationSchedule");
+
+                entity.Property(e => e.Username)
+                    .HasMaxLength(15)
+                    .HasColumnName("username")
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Date)
+                    .HasColumnType("date")
+                    .HasColumnName("date");
+
+                entity.HasOne(d => d.UsernameNavigation)
+                    .WithMany(p => p.RegistrationSchedules)
+                    .HasForeignKey(d => d.Username)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_RegistrationSchedule_Account");
+            });
+
             modelBuilder.Entity<Role>(entity =>
             {
                 entity.ToTable("Role");

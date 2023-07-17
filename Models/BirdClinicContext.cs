@@ -21,6 +21,7 @@ namespace Models
         public virtual DbSet<Booking> Bookings { get; set; }
         public virtual DbSet<MedicalRecord> MedicalRecords { get; set; }
         public virtual DbSet<PatientBird> PatientBirds { get; set; }
+        public virtual DbSet<RegistrationSchedule> RegistrationSchedules { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Service> Services { get; set; }
         public virtual DbSet<ServiceMore> ServiceMores { get; set; }
@@ -189,6 +190,28 @@ namespace Models
                     .HasForeignKey(d => d.Username)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Patient_Account");
+            });
+
+            modelBuilder.Entity<RegistrationSchedule>(entity =>
+            {
+                entity.HasKey(e => new { e.Username, e.Date });
+
+                entity.ToTable("RegistrationSchedule");
+
+                entity.Property(e => e.Username)
+                    .HasMaxLength(15)
+                    .HasColumnName("username")
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Date)
+                    .HasColumnType("date")
+                    .HasColumnName("date");
+
+                entity.HasOne(d => d.UsernameNavigation)
+                    .WithMany(p => p.RegistrationSchedules)
+                    .HasForeignKey(d => d.Username)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_RegistrationSchedule_Account");
             });
 
             modelBuilder.Entity<Role>(entity =>

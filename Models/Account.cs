@@ -11,6 +11,7 @@ namespace Models
         {
             Bookings = new HashSet<Booking>();
             PatientBirds = new HashSet<PatientBird>();
+            RegistrationSchedules = new HashSet<RegistrationSchedule>();
         }
 
         public string Username { get; set; }
@@ -23,5 +24,6 @@ namespace Models
         public virtual Role Role { get; set; }
         public virtual ICollection<Booking> Bookings { get; set; }
         public virtual ICollection<PatientBird> PatientBirds { get; set; }
+        public virtual ICollection<RegistrationSchedule> RegistrationSchedules { get; set; }
     }
 }

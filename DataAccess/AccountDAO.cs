@@ -51,5 +51,20 @@ namespace DataAccess
 				}
 			}catch(Exception ex) { }
 		}
+		public static Account Login(string username)
+		{
+			var account = new Account();
+			try
+			{
+				using (var context = new BirdClinicContext())
+				{
+					account = context.Accounts.SingleOrDefault(r => r.Username == username);
+				}
+			}catch(Exception e)
+			{
+				throw new Exception(e.Message);
+			}
+			return account;
+		}
 	}
 }

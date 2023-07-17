@@ -23,7 +23,6 @@ namespace Models
         public string BirdName { get; set; }
 
         public virtual Species Species { get; set; }
-        public virtual Account UsernameNavigation { get; set; }
         public virtual ICollection<Booking> Bookings { get; set; }
     }
 }

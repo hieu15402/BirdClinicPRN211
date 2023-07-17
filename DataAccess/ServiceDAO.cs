@@ -26,6 +26,22 @@ namespace DataAccess
 			}
 			return list;
 		}
+		public static List<Service> getAllServiceCus()
+		{
+			var list = new List<Service>();
+			try
+			{
+				using (var context = new BirdClinicContext())
+				{
+					list = context.Services.Where(f => f.Status == true).ToList();
+				}
+			}
+			catch (Exception ex)
+			{
+
+			}
+			return list;
+		}
 		public static void UpdateService(Service service)
 		{
 			try

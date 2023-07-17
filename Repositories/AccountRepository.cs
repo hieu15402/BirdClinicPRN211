@@ -13,5 +13,6 @@ namespace Repositories
 		public List<Account> GetAccountsByRole(int roleId) => AccountDAO.GetAccountsByRole(roleId);
 		public void UpdateAccount(Account account) => AccountDAO.UpdateAccount(account) ;
 		public void CreateAccount(Account account) => AccountDAO.CreateAccount(account);
+		public  Account Login(string username) => AccountDAO.Login(username) ;
 	}
 }

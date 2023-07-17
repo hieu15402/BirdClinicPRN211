@@ -12,5 +12,6 @@ namespace Repositories
 		List<Account> GetAccountsByRole(int roleId);
 		void UpdateAccount(Account account);
 		void CreateAccount(Account account);
+		Account Login(string username);
 	}
 }

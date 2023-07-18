@@ -15,5 +15,6 @@ namespace Repositories
 		void UpdateBird(PatientBird patientBird);
 		void Create(PatientBird patientBird);
 		PatientBird getPatientByID(int id);
+		PatientBird getPatientByName(string name);
 	}
 }

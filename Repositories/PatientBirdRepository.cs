@@ -16,5 +16,6 @@ namespace Repositories
 		public void UpdateBird(PatientBird patientBird) => PatientBirdDAO.UpdateBird(patientBird);
 		public void Create(PatientBird patientBird) => PatientBirdDAO.Create(patientBird);
 		public PatientBird getPatientByID(int id) => PatientBirdDAO.getPatientByID(id);
+		public PatientBird getPatientByName(string name) => PatientBirdDAO.getPatientByName(name);
 	}
 }

@@ -1,4 +1,6 @@
-﻿using Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +48,20 @@ namespace DataAccess
 				}
 			}catch (Exception ex) { }
 			return ser;
+		}
+		public static void CreateMedical(MedicalRecord record)
+		{
+			try
+			{
+				using(var context = new BirdClinicContext())
+				{
+					context.MedicalRecords.Add(record);
+					context.SaveChanges();
+				}
+			}catch (Exception ex)
+			{
+
+			}
 		}
 	}
 }

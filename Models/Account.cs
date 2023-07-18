@@ -16,7 +16,7 @@ namespace Models
         public string Password { get; set; }
         public int RoleId { get; set; }
         public string Name { get; set; }
-        public DateTime? DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
         public string Phone { get; set; }
         public bool Status { get; set; }
         public int Gender { get; set; }

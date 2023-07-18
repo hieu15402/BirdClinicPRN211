@@ -96,5 +96,18 @@ namespace DataAccess
 			}catch(Exception e) { }
 			return p;
 		}
+		public static PatientBird getPatientByName(string name)
+		{
+			var p = new PatientBird();
+			try
+			{
+				using (var context = new BirdClinicContext())
+				{
+					p = context.PatientBirds.SingleOrDefault(f => f.BirdName == name);
+				}
+			}
+			catch (Exception e) { }
+			return p;
+		}
 	}
 }

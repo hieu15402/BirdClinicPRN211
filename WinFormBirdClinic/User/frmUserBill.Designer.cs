@@ -31,7 +31,6 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserBill));
 			label1 = new System.Windows.Forms.Label();
 			dgvMedical = new System.Windows.Forms.DataGridView();
-			button1 = new System.Windows.Forms.Button();
 			pictureBox1 = new System.Windows.Forms.PictureBox();
 			panel1 = new System.Windows.Forms.Panel();
 			label10 = new System.Windows.Forms.Label();
@@ -76,18 +75,9 @@
 			dgvMedical.Name = "dgvMedical";
 			dgvMedical.RowHeadersWidth = 51;
 			dgvMedical.RowTemplate.Height = 29;
-			dgvMedical.Size = new System.Drawing.Size(548, 417);
+			dgvMedical.Size = new System.Drawing.Size(460, 417);
 			dgvMedical.TabIndex = 7;
 			dgvMedical.CellDoubleClick += dgvMedical_CellDoubleClick;
-			// 
-			// button1
-			// 
-			button1.Location = new System.Drawing.Point(1084, 112);
-			button1.Name = "button1";
-			button1.Size = new System.Drawing.Size(94, 29);
-			button1.TabIndex = 8;
-			button1.Text = "Search";
-			button1.UseVisualStyleBackColor = true;
 			// 
 			// pictureBox1
 			// 
@@ -260,11 +250,11 @@
 			// dgvServiceMore
 			// 
 			dgvServiceMore.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dgvServiceMore.Location = new System.Drawing.Point(821, 168);
+			dgvServiceMore.Location = new System.Drawing.Point(733, 168);
 			dgvServiceMore.Name = "dgvServiceMore";
 			dgvServiceMore.RowHeadersWidth = 51;
 			dgvServiceMore.RowTemplate.Height = 29;
-			dgvServiceMore.Size = new System.Drawing.Size(357, 188);
+			dgvServiceMore.Size = new System.Drawing.Size(445, 227);
 			dgvServiceMore.TabIndex = 18;
 			// 
 			// frmUserBill
@@ -276,7 +266,6 @@
 			Controls.Add(dgvServiceMore);
 			Controls.Add(panel1);
 			Controls.Add(pictureBox1);
-			Controls.Add(button1);
 			Controls.Add(dgvMedical);
 			Controls.Add(label1);
 			FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -301,7 +290,6 @@
 		#endregion
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.DataGridView dgvMedical;
-		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Label label2;

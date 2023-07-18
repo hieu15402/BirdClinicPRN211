@@ -123,5 +123,16 @@ namespace DataAccess
 			}
 			return booking;
 		}
+		public static void CreateBooking(Booking booking)
+		{
+			try
+			{
+				using(var  context = new BirdClinicContext())
+				{
+					context.Bookings.Add(booking);
+					context.SaveChanges();
+				}
+			}catch (Exception e) { }
+		}
 	}
 }

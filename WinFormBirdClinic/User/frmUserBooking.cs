@@ -87,7 +87,7 @@ namespace WinFormBirdClinic.User
 		{
 			LoadService();
 			LoadBird();
-			LoadDoctor();
+			LoadDoctor(account_repo.GetAccountsByRole(3));
 			LoadBooking(repo.getBookingUser(Username));
 
 		}
@@ -121,11 +121,11 @@ namespace WinFormBirdClinic.User
 		IAccountRepository account_repo = new AccountRepository();
 		IServiceRepository ser_repo = new ServiceRepository();
 		IPatientBirdRepository patient_repo = new PatientBirdRepository();
-		public void LoadDoctor()
+		public void LoadDoctor(List<Account> list)
 		{
 			try
 			{
-				var list = account_repo.GetAccountsByRole(3);
+
 				cbDoctor.DataSource = list;
 				cbDoctor.DisplayMember = "Name";
 				cbDoctor.SelectedValue = "UsernameDoctor";
@@ -137,7 +137,7 @@ namespace WinFormBirdClinic.User
 		{
 			try
 			{
-				var list = ser_repo.getAllService();
+				var list = ser_repo.getAllServiceWhenBooking();
 				cbService.DataSource = list;
 				cbService.DisplayMember = "ServiceName";
 				cbService.ValueMember = "ServiceId";
@@ -158,7 +158,25 @@ namespace WinFormBirdClinic.User
 
 		private void button2_Click(object sender, EventArgs e)
 		{
+			DateTime date = dtpBooking.Value;
+			string Date = date.ToString("yyyy-MM-dd");
+			try
+			{
+				var b = new Booking
+				{
+					BookingDate = date,
+					UsernameDoctor = cbDoctor.SelectedValue.ToString(),
+					UsernameCustomer = Username,
+					ServiceId = int.Parse(cbService.SelectedValue.ToString()),
+					Fee = double.Parse(txtFee.Text),
+					PatiendId = int.Parse(cbBird.SelectedValue.ToString()),
+					StatusId = 1,
+				};
+				repo.CreateBooking(b);
+				LoadBooking(repo.getBookingUser(Username));
 
+			}
+			catch (Exception ex) { }
 		}
 
 		private void dtpBooking_ValueChanged(object sender, EventArgs e)
@@ -166,11 +184,26 @@ namespace WinFormBirdClinic.User
 			DateTime date = dtpBooking.Value;
 			string Date = date.ToString("yyyy-MM-dd");
 			var list = account_repo.getSchedules(DateTime.Parse(Date));
-			for(int i = 0; i < list.Count; i++)
+			List<Account> list2 = new List<Account>();
+			if (list.Count == 0)
 			{
-				cbDoctor.DisplayMember = acc.Login(list[i].Username).Name;
-				cbDoctor.ValueMember = list[i].Username;
+				LoadDoctor(account_repo.GetAccountsByRole(3));
 			}
+			else
+			{
+				for (int i = 0; i < list.Count; i++)
+				{
+					Account account = acc.Login(list[i].Username);
+					list2.Add(account);
+				}
+				LoadDoctor(list2);
+			}
+		}
+		private void cbService_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			string ser = cbService.Text.Trim();
+			var Service = ser_repo.getServicebyName(ser);
+			txtFee.Text = Service.Fee.ToString();
 		}
 	}
 }

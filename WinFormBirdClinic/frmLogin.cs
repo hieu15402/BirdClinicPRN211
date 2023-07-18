@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormBirdClinic.Doctor;
 using WinFormBirdClinic.User;
 
 namespace WinFormBirdClinic
@@ -20,8 +21,9 @@ namespace WinFormBirdClinic
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            frmUserPage frmUserPage = new frmUserPage();
-            frmUserPage.ShowDialog();
+            frmSchedule frmSchedule = new frmSchedule("doctor1");
+            frmSchedule.ShowDialog();
+            
         }
     }
 }

@@ -17,5 +17,6 @@ namespace Repositories
 		public int getStatusByBookingID(int id) => BookingDAO.getStatusByBookingID(id);
 		public Booking GetBookingbyID(int id) => BookingDAO.GetBookingbyID(id);
 		public List<Booking> getBookingUser(string user) => BookingDAO.getBookingUser(user);
+		public void CreateBooking(Booking booking) => BookingDAO.CreateBooking(booking);
 	}
 }

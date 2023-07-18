@@ -36,7 +36,6 @@
 			label12 = new System.Windows.Forms.Label();
 			dtpBooking = new System.Windows.Forms.DateTimePicker();
 			dgvBooking = new System.Windows.Forms.DataGridView();
-			button1 = new System.Windows.Forms.Button();
 			pictureBox1 = new System.Windows.Forms.PictureBox();
 			txtFee = new System.Windows.Forms.TextBox();
 			label6 = new System.Windows.Forms.Label();
@@ -136,15 +135,6 @@
 			dgvBooking.Size = new System.Drawing.Size(887, 244);
 			dgvBooking.TabIndex = 7;
 			// 
-			// button1
-			// 
-			button1.Location = new System.Drawing.Point(798, 310);
-			button1.Name = "button1";
-			button1.Size = new System.Drawing.Size(94, 29);
-			button1.TabIndex = 8;
-			button1.Text = "Search";
-			button1.UseVisualStyleBackColor = true;
-			// 
 			// pictureBox1
 			// 
 			pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
@@ -158,6 +148,7 @@
 			// 
 			// txtFee
 			// 
+			txtFee.Enabled = false;
 			txtFee.Location = new System.Drawing.Point(300, 312);
 			txtFee.Name = "txtFee";
 			txtFee.Size = new System.Drawing.Size(280, 27);
@@ -175,7 +166,7 @@
 			// 
 			// button2
 			// 
-			button2.Location = new System.Drawing.Point(984, 312);
+			button2.Location = new System.Drawing.Point(800, 311);
 			button2.Name = "button2";
 			button2.Size = new System.Drawing.Size(94, 29);
 			button2.TabIndex = 18;
@@ -206,6 +197,7 @@
 			cbService.Name = "cbService";
 			cbService.Size = new System.Drawing.Size(278, 28);
 			cbService.TabIndex = 21;
+			cbService.SelectedIndexChanged += cbService_SelectedIndexChanged;
 			// 
 			// panel1
 			// 
@@ -378,7 +370,6 @@
 			Controls.Add(txtFee);
 			Controls.Add(label6);
 			Controls.Add(pictureBox1);
-			Controls.Add(button1);
 			Controls.Add(dgvBooking);
 			Controls.Add(dtpBooking);
 			Controls.Add(label11);
@@ -412,7 +403,6 @@
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.DateTimePicker dtpBooking;
 		private System.Windows.Forms.DataGridView dgvBooking;
-		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.TextBox txtFee;
 		private System.Windows.Forms.Label label6;

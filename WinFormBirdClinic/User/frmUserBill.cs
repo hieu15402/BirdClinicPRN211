@@ -82,6 +82,7 @@ namespace WinFormBirdClinic.User
 		}
 		IMedicalRepository repo = new MedicalRepository();
 		BindingSource source;
+		IServiceRepository service = new ServiceRepository();
 		private void frmUserBill_Load(object sender, EventArgs e)
 		{
 			LoadBooking(repo.getMedicalbyUser(Username));
@@ -95,6 +96,8 @@ namespace WinFormBirdClinic.User
 
 				dgvMedical.DataSource = null;
 				dgvMedical.DataSource = source;
+				dgvMedical.Columns[3].Visible = false;
+				dgvMedical.Columns[4].Visible = false;
 			}
 			catch (Exception ex) { }
 		}
@@ -115,7 +118,20 @@ namespace WinFormBirdClinic.User
 
 				dgvServiceMore.DataSource = null;
 				dgvServiceMore.DataSource = source;
-			}catch (Exception ex) { }
+				dgvServiceMore.Columns[1].Visible = false;
+				dgvServiceMore.Columns[3].Visible = false;
+				dgvServiceMore.Columns[4].Visible = false;
+				DataGridViewTextBoxColumn column = new DataGridViewTextBoxColumn();
+				column.HeaderText = "ServiceName";
+				dgvServiceMore.Columns.Add(column);
+				int columnIndex = 5; // Chỉ mục cột
+
+				for (int rowIndex = 0; rowIndex < list.Count; rowIndex++)
+				{
+					dgvServiceMore.Rows[rowIndex].Cells[columnIndex].Value = service.getServicebyID(list[rowIndex].ServiceId).ServiceName;
+				}
+			}
+			catch (Exception ex) { }
 		}
 	}
 }

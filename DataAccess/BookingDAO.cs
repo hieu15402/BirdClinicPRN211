@@ -28,6 +28,25 @@ namespace DataAccess
 			}
 			return bookingList;
 		}
+		public static List<Booking> getBookingUser(string username)
+		{
+			var bookingList = new List<Booking>();
+			try
+			{
+				using (var context = new BirdClinicContext())
+				{
+					bookingList = context.Bookings.Include(s => s.Status)
+												  .Include(v => v.Service)
+												  .Include(p => p.Patiend)
+												  .Where(u => u.UsernameCustomer == username).ToList();
+				}
+			}
+			catch (Exception ex)
+			{
+
+			}
+			return bookingList;
+		}
 		public static void UpdateBooking(Booking booking)
 		{
 			try

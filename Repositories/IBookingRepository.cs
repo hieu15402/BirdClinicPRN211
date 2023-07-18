@@ -15,5 +15,6 @@ namespace Repositories
 		List<StatusBooking> GetStatusBooking(int id);
 		int getStatusByBookingID(int id);
 		Booking GetBookingbyID(int id);
+		List<Booking> getBookingUser(string username);
 	}
 }

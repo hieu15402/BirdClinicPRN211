@@ -41,8 +41,15 @@ namespace WinFormBirdClinic
 							frmHome staff = new frmHome();
 							staff.ShowDialog();
 							break;
-						case 3: break;
-					}
+						case 3: 
+							frmSchedule schedule = new frmSchedule(account.Username);
+                            schedule.StartPosition = FormStartPosition.CenterScreen;
+                            schedule.ShowDialog();
+							break;
+						default:
+							break;
+
+                    }
 				}
 			}
 			else

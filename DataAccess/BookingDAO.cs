@@ -79,7 +79,7 @@ namespace DataAccess
 			{
 				using (var context = new BirdClinicContext())
 				{
-					status = context.Bookings.SingleOrDefault(f => f.StatusId == id).StatusId;
+					status = context.Bookings.SingleOrDefault(f => f.BookingId == id).StatusId;
 				}
 			}
 			catch (Exception e)
@@ -104,5 +104,22 @@ namespace DataAccess
 			}
 			return booking;
 		}
-	}
+        public static List<Booking> getBookingByDoctor(string doctor)
+        {
+            var bookingList = new List<Booking>();
+            try
+            {
+                using (var context = new BirdClinicContext())
+                {
+                    bookingList = context.Bookings.Where(b => b.UsernameDoctor == doctor).ToList();
+                    return bookingList;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return bookingList;
+        }
+    }
 }

@@ -1,8 +1,6 @@
-﻿using WinFormBirdClinic.User;
-
-namespace WinFormBirdClinic.Doctor
+﻿namespace WinFormBirdClinic.Doctor
 {
-    partial class frmSchedule
+    partial class frmScheduleView
     {
         /// <summary>
         /// Required designer variable.
@@ -30,10 +28,8 @@ namespace WinFormBirdClinic.Doctor
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSchedule));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmScheduleView));
             label1 = new System.Windows.Forms.Label();
-            label12 = new System.Windows.Forms.Label();
-            dtpBookingDate = new System.Windows.Forms.DateTimePicker();
             dgvSchedule = new System.Windows.Forms.DataGridView();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             panel1 = new System.Windows.Forms.Panel();
@@ -45,10 +41,8 @@ namespace WinFormBirdClinic.Doctor
             pictureBox2 = new System.Windows.Forms.PictureBox();
             pictureBox5 = new System.Windows.Forms.PictureBox();
             pictureBox4 = new System.Windows.Forms.PictureBox();
-            label3 = new System.Windows.Forms.Label();
-            btnDelete = new System.Windows.Forms.Button();
-            btnRegister = new System.Windows.Forms.Button();
-            txtUsename = new System.Windows.Forms.TextBox();
+            btnUpcoming = new System.Windows.Forms.Button();
+            btnToday = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)dgvSchedule).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -64,35 +58,18 @@ namespace WinFormBirdClinic.Doctor
             label1.Font = new System.Drawing.Font("Segoe UI", 19.8000011F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             label1.Location = new System.Drawing.Point(541, 9);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(150, 46);
+            label1.Size = new System.Drawing.Size(163, 46);
             label1.TabIndex = 2;
-            label1.Text = "Register";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label12.Location = new System.Drawing.Point(800, 75);
-            label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(161, 31);
-            label12.TabIndex = 3;
-            label12.Text = "Booking Date";
-            // 
-            // dtpBookingDate
-            // 
-            dtpBookingDate.Location = new System.Drawing.Point(800, 120);
-            dtpBookingDate.Name = "dtpBookingDate";
-            dtpBookingDate.Size = new System.Drawing.Size(280, 27);
-            dtpBookingDate.TabIndex = 5;
+            label1.Text = "Schedule";
             // 
             // dgvSchedule
             // 
             dgvSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSchedule.Location = new System.Drawing.Point(384, 250);
+            dgvSchedule.Location = new System.Drawing.Point(267, 249);
             dgvSchedule.Name = "dgvSchedule";
             dgvSchedule.RowHeadersWidth = 51;
             dgvSchedule.RowTemplate.Height = 29;
-            dgvSchedule.Size = new System.Drawing.Size(629, 218);
+            dgvSchedule.Size = new System.Drawing.Size(911, 349);
             dgvSchedule.TabIndex = 7;
             // 
             // pictureBox1
@@ -184,7 +161,7 @@ namespace WinFormBirdClinic.Doctor
             // pictureBox2
             // 
             pictureBox2.Image = (System.Drawing.Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new System.Drawing.Point(55, 542);
+            pictureBox2.Location = new System.Drawing.Point(55, 538);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new System.Drawing.Size(46, 47);
             pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -200,7 +177,6 @@ namespace WinFormBirdClinic.Doctor
             pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pictureBox5.TabIndex = 2;
             pictureBox5.TabStop = false;
-            pictureBox5.Click += pictureBox5_Click;
             // 
             // pictureBox4
             // 
@@ -213,63 +189,42 @@ namespace WinFormBirdClinic.Doctor
             pictureBox4.TabStop = false;
             pictureBox4.Click += pictureBox4_Click;
             // 
-            // label3
+            // btnUpcoming
             // 
-            label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label3.Location = new System.Drawing.Point(300, 75);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(153, 31);
-            label3.TabIndex = 3;
-            label3.Text = "Doctor name";
+            btnUpcoming.Location = new System.Drawing.Point(299, 119);
+            btnUpcoming.Name = "btnUpcoming";
+            btnUpcoming.Size = new System.Drawing.Size(94, 29);
+            btnUpcoming.TabIndex = 23;
+            btnUpcoming.Text = "Upcoming";
+            btnUpcoming.UseVisualStyleBackColor = true;
+            btnUpcoming.Click += btnUpcoming_Click;
             // 
-            // btnDelete
+            // btnToday
             // 
-            btnDelete.Location = new System.Drawing.Point(986, 193);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new System.Drawing.Size(94, 29);
-            btnDelete.TabIndex = 23;
-            btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
-            btnDelete.Click += btnDelete_Click;
+            btnToday.Location = new System.Drawing.Point(299, 84);
+            btnToday.Name = "btnToday";
+            btnToday.Size = new System.Drawing.Size(94, 29);
+            btnToday.TabIndex = 25;
+            btnToday.Text = "Today";
+            btnToday.UseVisualStyleBackColor = true;
+            btnToday.Click += btnToday_Click;
             // 
-            // btnRegister
-            // 
-            btnRegister.Location = new System.Drawing.Point(300, 193);
-            btnRegister.Name = "btnRegister";
-            btnRegister.Size = new System.Drawing.Size(94, 29);
-            btnRegister.TabIndex = 25;
-            btnRegister.Text = "Register";
-            btnRegister.UseVisualStyleBackColor = true;
-            btnRegister.Click += btnRegister_Click;
-            // 
-            // txtUsename
-            // 
-            txtUsename.Location = new System.Drawing.Point(300, 135);
-            txtUsename.Name = "txtUsename";
-            txtUsename.Size = new System.Drawing.Size(280, 27);
-            txtUsename.TabIndex = 26;
-            // 
-            // frmSchedule
+            // frmScheduleView
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.SystemColors.ControlLight;
             ClientSize = new System.Drawing.Size(1190, 620);
-            Controls.Add(txtUsename);
-            Controls.Add(btnRegister);
-            Controls.Add(btnDelete);
+            Controls.Add(btnToday);
+            Controls.Add(btnUpcoming);
             Controls.Add(panel1);
             Controls.Add(pictureBox1);
             Controls.Add(dgvSchedule);
-            Controls.Add(dtpBookingDate);
-            Controls.Add(label12);
-            Controls.Add(label3);
             Controls.Add(label1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            Name = "frmSchedule";
+            Name = "frmScheduleView";
             Text = "frmDoctor";
-            Load += frmSchedule_Load;
+            Load += frmScheduleView_Load;
             ((System.ComponentModel.ISupportInitialize)dgvSchedule).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
@@ -284,8 +239,6 @@ namespace WinFormBirdClinic.Doctor
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker dtpBookingDate;
         private System.Windows.Forms.DataGridView dgvSchedule;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
@@ -295,10 +248,8 @@ namespace WinFormBirdClinic.Doctor
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnRegister;
-        private System.Windows.Forms.TextBox txtUsename;
+        private System.Windows.Forms.Button btnUpcoming;
+        private System.Windows.Forms.Button btnToday;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox3;
     }

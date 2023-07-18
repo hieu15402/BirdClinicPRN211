@@ -34,7 +34,7 @@ namespace Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=(local);uid=sa;pwd=12345;database=BirdClinic;TrustServerCertificate=True");
+                optionsBuilder.UseSqlServer("Server=(local); Database=BirdClinic; Uid=sa; Pwd=12345");
             }
         }
 
@@ -215,28 +215,6 @@ namespace Models
                     .HasForeignKey(d => d.SpeciesId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Patient_Species");
-            });
-
-            modelBuilder.Entity<RegistrationSchedule>(entity =>
-            {
-                entity.HasKey(e => new { e.Username, e.Date });
-
-                entity.ToTable("RegistrationSchedule");
-
-                entity.Property(e => e.Username)
-                    .HasMaxLength(15)
-                    .HasColumnName("username")
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.Date)
-                    .HasColumnType("date")
-                    .HasColumnName("date");
-
-                entity.HasOne(d => d.UsernameNavigation)
-                    .WithMany(p => p.RegistrationSchedules)
-                    .HasForeignKey(d => d.Username)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_RegistrationSchedule_Account");
             });
 
             modelBuilder.Entity<RegistrationSchedule>(entity =>

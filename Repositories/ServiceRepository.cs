@@ -14,5 +14,10 @@ namespace Repositories
 		public void UpdateService(Service service) => ServiceDAO.UpdateService(service);
 		public void CreateService(Service service)=> ServiceDAO.CreateService(service);
 		public List<Service> getAllServiceCus() => ServiceDAO.getAllServiceCus();
-	}
+
+        public Service GetServiceById(int id)
+        {
+            return ServiceDAO.GetServiceById(id);
+        }
+    }
 }

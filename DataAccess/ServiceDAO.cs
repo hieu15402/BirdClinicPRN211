@@ -72,5 +72,22 @@ namespace DataAccess
 				throw new Exception(e.Message);
 			}
 		}
+
+		public static Service GetServiceById(int id)
+		{
+			Service service = null;
+            try
+            {
+                using (var context = new BirdClinicContext())
+                {
+					service = context.Services.SingleOrDefault(s => s.ServiceId == id);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+			return service;
+        }
 	}
 }

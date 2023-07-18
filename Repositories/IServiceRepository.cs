@@ -13,5 +13,7 @@ namespace Repositories
 		void UpdateService(Service service);
 		void CreateService(Service service);
 		List<Service> getAllServiceCus();
-	}
+		public Service GetServiceById(int id);
+
+    }
 }

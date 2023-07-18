@@ -14,5 +14,6 @@ namespace Repositories
 		void CreateAccount(Account account);
 		Account Login(string username);
 		List<Gender> Gender();
+		List<RegistrationSchedule> getSchedules(DateTime date);
 	}
 }

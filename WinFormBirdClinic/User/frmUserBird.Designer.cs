@@ -34,13 +34,13 @@
 			label8 = new System.Windows.Forms.Label();
 			label11 = new System.Windows.Forms.Label();
 			label12 = new System.Windows.Forms.Label();
-			textBox1 = new System.Windows.Forms.TextBox();
-			textBox2 = new System.Windows.Forms.TextBox();
-			textBox3 = new System.Windows.Forms.TextBox();
-			dataGridView1 = new System.Windows.Forms.DataGridView();
-			button1 = new System.Windows.Forms.Button();
-			button3 = new System.Windows.Forms.Button();
-			button4 = new System.Windows.Forms.Button();
+			txtPatientID = new System.Windows.Forms.TextBox();
+			txtHeight = new System.Windows.Forms.TextBox();
+			txtWeight = new System.Windows.Forms.TextBox();
+			dgvBird = new System.Windows.Forms.DataGridView();
+			btnUpdate = new System.Windows.Forms.Button();
+			btnSave = new System.Windows.Forms.Button();
+			btnCancel = new System.Windows.Forms.Button();
 			pictureBox1 = new System.Windows.Forms.PictureBox();
 			pictureBox4 = new System.Windows.Forms.PictureBox();
 			pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -55,15 +55,15 @@
 			panel1 = new System.Windows.Forms.Panel();
 			label6 = new System.Windows.Forms.Label();
 			pictureBox3 = new System.Windows.Forms.PictureBox();
-			button2 = new System.Windows.Forms.Button();
-			textBox4 = new System.Windows.Forms.TextBox();
-			textBox5 = new System.Windows.Forms.TextBox();
-			textBox6 = new System.Windows.Forms.TextBox();
+			btnCreate = new System.Windows.Forms.Button();
+			txtAge = new System.Windows.Forms.TextBox();
+			txtBirdName = new System.Windows.Forms.TextBox();
 			label10 = new System.Windows.Forms.Label();
 			label13 = new System.Windows.Forms.Label();
-			textBox7 = new System.Windows.Forms.TextBox();
 			label14 = new System.Windows.Forms.Label();
-			((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+			cbGender = new System.Windows.Forms.ComboBox();
+			cbSpecies = new System.Windows.Forms.ComboBox();
+			((System.ComponentModel.ISupportInitialize)dgvBird).BeginInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -78,17 +78,17 @@
 			// 
 			label1.AutoSize = true;
 			label1.Font = new System.Drawing.Font("Segoe UI", 19.8000011F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			label1.Location = new System.Drawing.Point(549, 9);
+			label1.Location = new System.Drawing.Point(656, 0);
 			label1.Name = "label1";
-			label1.Size = new System.Drawing.Size(126, 46);
+			label1.Size = new System.Drawing.Size(87, 46);
 			label1.TabIndex = 2;
-			label1.Text = "Profile";
+			label1.Text = "Bird";
 			// 
 			// label3
 			// 
 			label3.AutoSize = true;
 			label3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			label3.Location = new System.Drawing.Point(300, 75);
+			label3.Location = new System.Drawing.Point(312, 46);
 			label3.Name = "label3";
 			label3.Size = new System.Drawing.Size(120, 31);
 			label3.TabIndex = 3;
@@ -98,7 +98,7 @@
 			// 
 			label8.AutoSize = true;
 			label8.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			label8.Location = new System.Drawing.Point(300, 267);
+			label8.Location = new System.Drawing.Point(312, 238);
 			label8.Name = "label8";
 			label8.Size = new System.Drawing.Size(88, 31);
 			label8.TabIndex = 3;
@@ -108,7 +108,7 @@
 			// 
 			label11.AutoSize = true;
 			label11.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			label11.Location = new System.Drawing.Point(800, 267);
+			label11.Location = new System.Drawing.Point(812, 238);
 			label11.Name = "label11";
 			label11.Size = new System.Drawing.Size(92, 31);
 			label11.TabIndex = 3;
@@ -118,69 +118,75 @@
 			// 
 			label12.AutoSize = true;
 			label12.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			label12.Location = new System.Drawing.Point(800, 75);
+			label12.Location = new System.Drawing.Point(812, 46);
 			label12.Name = "label12";
 			label12.Size = new System.Drawing.Size(93, 31);
 			label12.TabIndex = 3;
 			label12.Text = "Species";
 			// 
-			// textBox1
+			// txtPatientID
 			// 
-			textBox1.Location = new System.Drawing.Point(300, 120);
-			textBox1.Name = "textBox1";
-			textBox1.Size = new System.Drawing.Size(280, 27);
-			textBox1.TabIndex = 4;
+			txtPatientID.Enabled = false;
+			txtPatientID.Location = new System.Drawing.Point(312, 91);
+			txtPatientID.Name = "txtPatientID";
+			txtPatientID.Size = new System.Drawing.Size(280, 27);
+			txtPatientID.TabIndex = 4;
 			// 
-			// textBox2
+			// txtHeight
 			// 
-			textBox2.Location = new System.Drawing.Point(300, 312);
-			textBox2.Name = "textBox2";
-			textBox2.Size = new System.Drawing.Size(280, 27);
-			textBox2.TabIndex = 4;
+			txtHeight.Location = new System.Drawing.Point(312, 283);
+			txtHeight.Name = "txtHeight";
+			txtHeight.Size = new System.Drawing.Size(280, 27);
+			txtHeight.TabIndex = 4;
 			// 
-			// textBox3
+			// txtWeight
 			// 
-			textBox3.Location = new System.Drawing.Point(800, 312);
-			textBox3.Name = "textBox3";
-			textBox3.Size = new System.Drawing.Size(280, 27);
-			textBox3.TabIndex = 4;
+			txtWeight.Location = new System.Drawing.Point(812, 283);
+			txtWeight.Name = "txtWeight";
+			txtWeight.Size = new System.Drawing.Size(280, 27);
+			txtWeight.TabIndex = 4;
 			// 
-			// dataGridView1
+			// dgvBird
 			// 
-			dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridView1.Location = new System.Drawing.Point(291, 490);
-			dataGridView1.Name = "dataGridView1";
-			dataGridView1.RowHeadersWidth = 51;
-			dataGridView1.RowTemplate.Height = 29;
-			dataGridView1.Size = new System.Drawing.Size(887, 118);
-			dataGridView1.TabIndex = 7;
+			dgvBird.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dgvBird.Location = new System.Drawing.Point(291, 434);
+			dgvBird.Name = "dgvBird";
+			dgvBird.RowHeadersWidth = 51;
+			dgvBird.RowTemplate.Height = 29;
+			dgvBird.Size = new System.Drawing.Size(887, 174);
+			dgvBird.TabIndex = 7;
 			// 
-			// button1
+			// btnUpdate
 			// 
-			button1.Location = new System.Drawing.Point(438, 453);
-			button1.Name = "button1";
-			button1.Size = new System.Drawing.Size(94, 29);
-			button1.TabIndex = 8;
-			button1.Text = "Update";
-			button1.UseVisualStyleBackColor = true;
+			btnUpdate.Location = new System.Drawing.Point(555, 399);
+			btnUpdate.Name = "btnUpdate";
+			btnUpdate.Size = new System.Drawing.Size(94, 29);
+			btnUpdate.TabIndex = 8;
+			btnUpdate.Text = "Update";
+			btnUpdate.UseVisualStyleBackColor = true;
+			btnUpdate.Click += btnUpdate_Click;
 			// 
-			// button3
+			// btnSave
 			// 
-			button3.Location = new System.Drawing.Point(752, 453);
-			button3.Name = "button3";
-			button3.Size = new System.Drawing.Size(94, 29);
-			button3.TabIndex = 8;
-			button3.Text = "Save";
-			button3.UseVisualStyleBackColor = true;
+			btnSave.Enabled = false;
+			btnSave.Location = new System.Drawing.Point(869, 399);
+			btnSave.Name = "btnSave";
+			btnSave.Size = new System.Drawing.Size(94, 29);
+			btnSave.TabIndex = 8;
+			btnSave.Text = "Save";
+			btnSave.UseVisualStyleBackColor = true;
+			btnSave.Click += btnSave_Click;
 			// 
-			// button4
+			// btnCancel
 			// 
-			button4.Location = new System.Drawing.Point(915, 453);
-			button4.Name = "button4";
-			button4.Size = new System.Drawing.Size(94, 29);
-			button4.TabIndex = 8;
-			button4.Text = "Cancel";
-			button4.UseVisualStyleBackColor = true;
+			btnCancel.Enabled = false;
+			btnCancel.Location = new System.Drawing.Point(1032, 399);
+			btnCancel.Name = "btnCancel";
+			btnCancel.Size = new System.Drawing.Size(94, 29);
+			btnCancel.TabIndex = 8;
+			btnCancel.Text = "Cancel";
+			btnCancel.UseVisualStyleBackColor = true;
+			btnCancel.Click += btnCancel_Click;
 			// 
 			// pictureBox1
 			// 
@@ -350,41 +356,35 @@
 			pictureBox3.TabStop = false;
 			pictureBox3.Click += pictureBox3_Click;
 			// 
-			// button2
+			// btnCreate
 			// 
-			button2.Location = new System.Drawing.Point(591, 453);
-			button2.Name = "button2";
-			button2.Size = new System.Drawing.Size(94, 29);
-			button2.TabIndex = 14;
-			button2.Text = "Update";
-			button2.UseVisualStyleBackColor = true;
+			btnCreate.Location = new System.Drawing.Point(708, 399);
+			btnCreate.Name = "btnCreate";
+			btnCreate.Size = new System.Drawing.Size(94, 29);
+			btnCreate.TabIndex = 14;
+			btnCreate.Text = "Create";
+			btnCreate.UseVisualStyleBackColor = true;
+			btnCreate.Click += btnCreate_Click;
 			// 
-			// textBox4
+			// txtAge
 			// 
-			textBox4.Location = new System.Drawing.Point(800, 120);
-			textBox4.Name = "textBox4";
-			textBox4.Size = new System.Drawing.Size(280, 27);
-			textBox4.TabIndex = 15;
+			txtAge.Location = new System.Drawing.Point(812, 183);
+			txtAge.Name = "txtAge";
+			txtAge.Size = new System.Drawing.Size(280, 27);
+			txtAge.TabIndex = 18;
 			// 
-			// textBox5
+			// txtBirdName
 			// 
-			textBox5.Location = new System.Drawing.Point(800, 212);
-			textBox5.Name = "textBox5";
-			textBox5.Size = new System.Drawing.Size(280, 27);
-			textBox5.TabIndex = 18;
-			// 
-			// textBox6
-			// 
-			textBox6.Location = new System.Drawing.Point(300, 212);
-			textBox6.Name = "textBox6";
-			textBox6.Size = new System.Drawing.Size(280, 27);
-			textBox6.TabIndex = 19;
+			txtBirdName.Location = new System.Drawing.Point(312, 183);
+			txtBirdName.Name = "txtBirdName";
+			txtBirdName.Size = new System.Drawing.Size(280, 27);
+			txtBirdName.TabIndex = 19;
 			// 
 			// label10
 			// 
 			label10.AutoSize = true;
 			label10.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			label10.Location = new System.Drawing.Point(800, 167);
+			label10.Location = new System.Drawing.Point(812, 138);
 			label10.Name = "label10";
 			label10.Size = new System.Drawing.Size(56, 31);
 			label10.TabIndex = 16;
@@ -394,28 +394,37 @@
 			// 
 			label13.AutoSize = true;
 			label13.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			label13.Location = new System.Drawing.Point(300, 167);
+			label13.Location = new System.Drawing.Point(312, 138);
 			label13.Name = "label13";
 			label13.Size = new System.Drawing.Size(128, 31);
 			label13.TabIndex = 17;
 			label13.Text = "Bird Name";
 			// 
-			// textBox7
-			// 
-			textBox7.Location = new System.Drawing.Point(300, 397);
-			textBox7.Name = "textBox7";
-			textBox7.Size = new System.Drawing.Size(280, 27);
-			textBox7.TabIndex = 21;
-			// 
 			// label14
 			// 
 			label14.AutoSize = true;
 			label14.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			label14.Location = new System.Drawing.Point(300, 352);
+			label14.Location = new System.Drawing.Point(312, 323);
 			label14.Name = "label14";
 			label14.Size = new System.Drawing.Size(91, 31);
 			label14.TabIndex = 20;
 			label14.Text = "Gender";
+			// 
+			// cbGender
+			// 
+			cbGender.FormattingEnabled = true;
+			cbGender.Location = new System.Drawing.Point(312, 366);
+			cbGender.Name = "cbGender";
+			cbGender.Size = new System.Drawing.Size(169, 28);
+			cbGender.TabIndex = 21;
+			// 
+			// cbSpecies
+			// 
+			cbSpecies.FormattingEnabled = true;
+			cbSpecies.Location = new System.Drawing.Point(812, 90);
+			cbSpecies.Name = "cbSpecies";
+			cbSpecies.Size = new System.Drawing.Size(280, 28);
+			cbSpecies.TabIndex = 22;
 			// 
 			// frmUserBird
 			// 
@@ -423,23 +432,23 @@
 			AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			BackColor = System.Drawing.SystemColors.ControlLight;
 			ClientSize = new System.Drawing.Size(1190, 620);
-			Controls.Add(textBox7);
+			Controls.Add(cbSpecies);
+			Controls.Add(cbGender);
 			Controls.Add(label14);
-			Controls.Add(textBox5);
-			Controls.Add(textBox6);
+			Controls.Add(txtAge);
+			Controls.Add(txtBirdName);
 			Controls.Add(label10);
 			Controls.Add(label13);
-			Controls.Add(textBox4);
-			Controls.Add(button2);
+			Controls.Add(btnCreate);
 			Controls.Add(panel1);
 			Controls.Add(pictureBox1);
-			Controls.Add(button4);
-			Controls.Add(button3);
-			Controls.Add(button1);
-			Controls.Add(dataGridView1);
-			Controls.Add(textBox3);
-			Controls.Add(textBox2);
-			Controls.Add(textBox1);
+			Controls.Add(btnCancel);
+			Controls.Add(btnSave);
+			Controls.Add(btnUpdate);
+			Controls.Add(dgvBird);
+			Controls.Add(txtWeight);
+			Controls.Add(txtHeight);
+			Controls.Add(txtPatientID);
 			Controls.Add(label11);
 			Controls.Add(label12);
 			Controls.Add(label8);
@@ -448,7 +457,8 @@
 			FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			Name = "frmUserBird";
 			Text = "frmDoctor";
-			((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+			Load += frmUserBird_Load;
+			((System.ComponentModel.ISupportInitialize)dgvBird).EndInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
@@ -468,13 +478,13 @@
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.DataGridView dataGridView1;
-		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.TextBox txtPatientID;
+		private System.Windows.Forms.TextBox txtHeight;
+		private System.Windows.Forms.TextBox txtWeight;
+		private System.Windows.Forms.DataGridView dgvBird;
+		private System.Windows.Forms.Button btnUpdate;
+		private System.Windows.Forms.Button btnSave;
+		private System.Windows.Forms.Button btnCancel;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.PictureBox pictureBox4;
 		private System.Windows.Forms.PictureBox pictureBox5;
@@ -489,13 +499,13 @@
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.PictureBox pictureBox3;
-		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.TextBox textBox4;
-		private System.Windows.Forms.TextBox textBox5;
-		private System.Windows.Forms.TextBox textBox6;
+		private System.Windows.Forms.Button btnCreate;
+		private System.Windows.Forms.TextBox txtAge;
+		private System.Windows.Forms.TextBox txtBirdName;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Label label13;
-		private System.Windows.Forms.TextBox textBox7;
 		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.ComboBox cbGender;
+		private System.Windows.Forms.ComboBox cbSpecies;
 	}
 }

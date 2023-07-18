@@ -12,5 +12,6 @@ namespace Repositories
 		List<Service> getAllService();
 		void UpdateService(Service service);
 		void CreateService(Service service);
+		List<Service> getAllServiceCus();
 	}
 }

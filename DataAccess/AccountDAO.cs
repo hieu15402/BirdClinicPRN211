@@ -17,7 +17,7 @@ namespace DataAccess
 			{
 				using (var context = new BirdClinicContext())
 				{
-					list = context.Accounts.Where(r => r.RoleId == roleId).ToList();
+					list = context.Accounts.Include(f => f.GenderNavigation).Where(r => r.RoleId == roleId).ToList();
 				}
 			}
 			catch (Exception ex)
@@ -50,6 +50,36 @@ namespace DataAccess
 					context.SaveChanges();
 				}
 			}catch(Exception ex) { }
+		}
+		public static Account Login(string username)
+		{
+			var account = new Account();
+			try
+			{
+				using (var context = new BirdClinicContext())
+				{
+					account = context.Accounts.SingleOrDefault(r => r.Username == username);
+				}
+			}catch(Exception e)
+			{
+				throw new Exception(e.Message);
+			}
+			return account;
+		}
+		public static List<Gender> Gender()
+		{
+			var list = new List<Gender>();
+			try
+			{
+				using(var context = new BirdClinicContext())
+				{
+					list = context.Genders.ToList();
+				}
+			}catch(Exception e)
+			{
+
+			}
+			return list;
 		}
 	}
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,18 +13,43 @@ using WinFormBirdClinic.User;
 
 namespace WinFormBirdClinic
 {
-    public partial class frmLogin : Form
-    {
-        public frmLogin()
-        {
-            InitializeComponent();
-        }
+	public partial class frmLogin : Form
+	{
+		IAccountRepository repo = new AccountRepository();
+		public frmLogin()
+		{
+			InitializeComponent();
+		}
 
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            frmSchedule frmSchedule = new frmSchedule("doctor1");
-            frmSchedule.ShowDialog();
-            
-        }
-    }
+		private void btnLogin_Click(object sender, EventArgs e)
+		{
+			var account = repo.Login(txtUsername.Text);
+			if (account != null)
+			{
+				if (account.Password.Trim() == txtPassword.Text)
+				{
+					switch (account.RoleId)
+					{
+						case 1:
+							frmUserPage user = new frmUserPage
+							{
+								UserName = txtUsername.Text,
+							};
+							user.ShowDialog();
+							break;
+						case 2:
+							frmHome staff = new frmHome();
+							staff.ShowDialog();
+							break;
+						case 3: break;
+					}
+				}
+			}
+			else
+			{
+				MessageBox.Show("Username or Password incorrect !!!","Login",MessageBoxButtons.OK,MessageBoxIcon.Error);
+			}
+
+		}
+	}
 }

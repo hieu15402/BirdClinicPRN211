@@ -19,8 +19,11 @@ namespace Models
         public int RoleId { get; set; }
         public string Name { get; set; }
         public DateTime? DateOfBirth { get; set; }
+        public string Phone { get; set; }
         public bool Status { get; set; }
+        public int Gender { get; set; }
 
+        public virtual Gender GenderNavigation { get; set; }
         public virtual Role Role { get; set; }
         public virtual ICollection<Booking> Bookings { get; set; }
         public virtual ICollection<PatientBird> PatientBirds { get; set; }

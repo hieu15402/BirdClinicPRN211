@@ -16,6 +16,9 @@ namespace Repositories
 		int getStatusByBookingID(int id);
 		Booking GetBookingbyID(int id);
 		public List<Booking> getBookingByDoctor(string doctor);
-
+        List<Booking> getBookingUser(string username);
+        void CreateBooking(Booking booking);
     }
+		
+	
 }

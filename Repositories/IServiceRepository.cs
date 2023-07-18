@@ -13,7 +13,8 @@ namespace Repositories
 		void UpdateService(Service service);
 		void CreateService(Service service);
 		List<Service> getAllServiceCus();
-		public Service GetServiceById(int id);
-
-    }
+		List<Service> getAllServiceWhenBooking();
+		Service getServicebyName(string name);
+		Service getServicebyID(int id);
+	}
 }

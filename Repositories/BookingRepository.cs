@@ -21,5 +21,9 @@ namespace Repositories
         {
             return BookingDAO.getBookingByDoctor(doctor);
         }
+        public List<Booking> getBookingUser(string user) => BookingDAO.getBookingUser(user);
+        public void CreateBooking(Booking booking) => BookingDAO.CreateBooking(booking);
     }
+		
+	
 }

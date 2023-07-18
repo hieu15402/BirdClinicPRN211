@@ -35,7 +35,8 @@ namespace DataAccess
 					context.Entry<Account>(account).State = EntityState.Modified;
 					context.SaveChanges();
 				}
-			}catch (Exception ex)
+			}
+			catch (Exception ex)
 			{
 
 			}
@@ -44,12 +45,13 @@ namespace DataAccess
 		{
 			try
 			{
-				using(var context = new BirdClinicContext())
+				using (var context = new BirdClinicContext())
 				{
 					context.Accounts.Add(account);
 					context.SaveChanges();
 				}
-			}catch(Exception ex) { }
+			}
+			catch (Exception ex) { }
 		}
 		public static Account Login(string username)
 		{
@@ -60,7 +62,8 @@ namespace DataAccess
 				{
 					account = context.Accounts.SingleOrDefault(r => r.Username == username);
 				}
-			}catch(Exception e)
+			}
+			catch (Exception e)
 			{
 				throw new Exception(e.Message);
 			}
@@ -71,14 +74,29 @@ namespace DataAccess
 			var list = new List<Gender>();
 			try
 			{
-				using(var context = new BirdClinicContext())
+				using (var context = new BirdClinicContext())
 				{
 					list = context.Genders.ToList();
 				}
-			}catch(Exception e)
+			}
+			catch (Exception e)
 			{
 
 			}
+			return list;
+		}
+
+		public static List<RegistrationSchedule> getSchedules(DateTime date)
+		{
+			var list = new List<RegistrationSchedule>();
+			try
+			{
+				using (var context = new BirdClinicContext())
+				{
+					list = context.RegistrationSchedules.Where(t => t.Date == date).ToList();
+				}
+			}
+			catch (Exception e) { }
 			return list;
 		}
 	}

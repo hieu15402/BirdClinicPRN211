@@ -28,7 +28,10 @@ namespace WinFormBirdClinic.User
 
 		private void pictureBox4_Click(object sender, EventArgs e)
 		{
-			frmUserBooking frmBooking = new frmUserBooking();
+			frmUserBooking frmBooking = new frmUserBooking
+			{
+				Username = Username,
+			};
 			frmBooking.StartPosition = FormStartPosition.CenterScreen;
 			frmBooking.ShowDialog();
 			this.Close();
@@ -36,7 +39,10 @@ namespace WinFormBirdClinic.User
 
 		private void pictureBox5_Click(object sender, EventArgs e)
 		{
-			frmUserService frmUserService = new frmUserService();
+			frmUserService frmUserService = new frmUserService
+			{
+				Username = Username,
+			};
 			frmUserService.ShowDialog();
 			frmUserService.StartPosition = FormStartPosition.CenterScreen;
 			this.Close();
@@ -44,7 +50,10 @@ namespace WinFormBirdClinic.User
 
 		private void pictureBox7_Click(object sender, EventArgs e)
 		{
-			frmUserProfile frmUserProfile = new frmUserProfile();
+			frmUserProfile frmUserProfile = new frmUserProfile
+			{
+				Username = Username,
+			};
 			frmUserProfile.StartPosition = FormStartPosition.CenterScreen;
 			frmUserProfile.ShowDialog();
 			this.Close();
@@ -52,7 +61,7 @@ namespace WinFormBirdClinic.User
 
 		private void pictureBox6_Click(object sender, EventArgs e)
 		{
-			frmUserBill frmUserBill = new frmUserBill();
+			frmUserBill frmUserBill = new frmUserBill{ Username = Username };
 			frmUserBill.StartPosition = FormStartPosition.CenterScreen;
 			frmUserBill.ShowDialog();
 			this.Close();
@@ -60,7 +69,7 @@ namespace WinFormBirdClinic.User
 
 		private void pictureBox1_Click(object sender, EventArgs e)
 		{
-			frmUserBird frmUserBird = new frmUserBird();
+			frmUserBird frmUserBird = new frmUserBird{ Username = Username };
 			frmUserBird.StartPosition = FormStartPosition.CenterScreen;
 			frmUserBird.ShowDialog();
 			this.Close();

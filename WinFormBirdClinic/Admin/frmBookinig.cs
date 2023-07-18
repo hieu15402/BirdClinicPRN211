@@ -130,6 +130,7 @@ namespace WinFormBirdClinic
 				b.StatusId = int.Parse(cbStatus.SelectedValue.ToString());
 				repo.UpdateBooking(b);
 				LoadBooking(repo.getAllBooking());
+				LoadStatusBooking(b.StatusId);
 			}
 			catch (Exception ex)
 			{

@@ -16,5 +16,6 @@ namespace Repositories
 		public  Account Login(string username) => AccountDAO.Login(username) ;
 		public List<Gender> Gender() => AccountDAO.Gender() ;
 		public List<RegistrationSchedule> getSchedules(DateTime date) => AccountDAO.getSchedules(date);
+		public string getUsername(string name) => AccountDAO.getUsername(name) ;
 	}
 }

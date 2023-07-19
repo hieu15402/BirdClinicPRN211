@@ -99,5 +99,20 @@ namespace DataAccess
 			catch (Exception e) { }
 			return list;
 		}
+		public static string getUsername(string name)
+		{
+			string names = "";
+			try
+			{
+				using(var  context = new BirdClinicContext())
+				{
+					names = context.Accounts.SingleOrDefault(f => f.Name.Trim().Equals(name.Trim())).Username;
+				}
+			}catch (Exception e)
+			{
+
+			}
+			return names;
+		}
 	}
 }

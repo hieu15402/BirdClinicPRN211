@@ -110,8 +110,6 @@ namespace WinFormBirdClinic.User
 				txtFee.DataBindings.Add("Text", source, "Fee");
 				cbBird.DataBindings.Add("Text", source, "Patiend.BirdName");
 				cbDoctor.DataBindings.Add("Text", source, "UsernameDoctor");
-				string name = acc.Login(cbDoctor.Text.Trim()).Name.Trim();
-				cbDoctor.Text = name;
 				cbService.DataBindings.Add("Text", source, "Service.ServiceName");
 				dtpBooking.DataBindings.Add("Text", source, "BookingDate");
 
@@ -125,10 +123,9 @@ namespace WinFormBirdClinic.User
 		{
 			try
 			{
-
 				cbDoctor.DataSource = list;
 				cbDoctor.DisplayMember = "Name";
-				cbDoctor.SelectedValue = "UsernameDoctor";
+				cbDoctor.SelectedValue = "Username";
 			}
 			catch (Exception ex) { }
 
@@ -165,7 +162,7 @@ namespace WinFormBirdClinic.User
 				var b = new Booking
 				{
 					BookingDate = date,
-					UsernameDoctor = cbDoctor.SelectedValue.ToString(),
+					UsernameDoctor = acc.getUsername(cbDoctor.Text),
 					UsernameCustomer = Username,
 					ServiceId = int.Parse(cbService.SelectedValue.ToString()),
 					Fee = double.Parse(txtFee.Text),

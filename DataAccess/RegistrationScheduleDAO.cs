@@ -59,7 +59,7 @@ namespace DataAccess
             {
                 using (var context = new BirdClinicContext())
                 {
-                    context.Entry(registrationSchedule).State = EntityState.Modified;
+                    context.Entry<RegistrationSchedule>(registrationSchedule).State = EntityState.Modified;
                     context.SaveChanges();
                 }
 

@@ -49,6 +49,7 @@ namespace WinFormBirdClinic.Doctor
             btnDelete = new System.Windows.Forms.Button();
             btnRegister = new System.Windows.Forms.Button();
             txtUsename = new System.Windows.Forms.TextBox();
+            btnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)dgvSchedule).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -250,12 +251,23 @@ namespace WinFormBirdClinic.Doctor
             txtUsename.Size = new System.Drawing.Size(280, 27);
             txtUsename.TabIndex = 26;
             // 
+            // btnUpdate
+            // 
+            btnUpdate.Location = new System.Drawing.Point(486, 193);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new System.Drawing.Size(94, 29);
+            btnUpdate.TabIndex = 27;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click_1;
+            // 
             // frmSchedule
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.SystemColors.ControlLight;
             ClientSize = new System.Drawing.Size(1190, 620);
+            Controls.Add(btnUpdate);
             Controls.Add(txtUsename);
             Controls.Add(btnRegister);
             Controls.Add(btnDelete);
@@ -301,5 +313,6 @@ namespace WinFormBirdClinic.Doctor
         private System.Windows.Forms.TextBox txtUsename;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

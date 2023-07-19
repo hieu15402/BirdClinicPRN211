@@ -63,25 +63,6 @@ namespace WinFormBirdClinic.Doctor
             LoadBooking(repo.getScheduleByUsername(username));
         }
 
-        //private void btnUpdate_Click(object sender, EventArgs e)
-        //{
-        //    RegistrationSchedule schedule = new RegistrationSchedule();
-        //    schedule.Username = username;
-        //    schedule.Date = DateTime.Parse(dtpBookingDate.Text);
-        //    var check = repo.checkExist(schedule);
-        //    if (check == false)
-        //    {
-        //        repo.updateScheduleByUsername(schedule);
-        //        MessageBox.Show("Update successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        LoadBooking(repo.getScheduleByUsername(username));
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("You have already registered for this date!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        LoadBooking(repo.getScheduleByUsername(username));
-        //    }
-        //}
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             RegistrationSchedule schedule = new RegistrationSchedule();
@@ -121,6 +102,33 @@ namespace WinFormBirdClinic.Doctor
             medicalRecord.StartPosition = FormStartPosition.CenterScreen;
             medicalRecord.ShowDialog();
             this.Close();
+        }
+
+        private void btnUpdate_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                RegistrationSchedule schedule = new RegistrationSchedule();
+                schedule.Username = username;
+                schedule.Date = DateTime.Parse(dtpBookingDate.Value.ToString());
+                var check = repo.checkExist(schedule);
+                if (check == false)
+                {
+                    repo.updateScheduleByUsername(schedule);
+                    MessageBox.Show("Update successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadBooking(repo.getScheduleByUsername(username));
+                }
+                else
+                {
+                    MessageBox.Show("You have already registered for this date!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadBooking(repo.getScheduleByUsername(username));
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

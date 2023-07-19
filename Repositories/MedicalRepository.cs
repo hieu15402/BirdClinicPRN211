@@ -12,5 +12,6 @@ namespace Repositories
 	{
 		public List<MedicalRecord> getMedicalbyUser(string username) => MedicalDAO.getMedicalbyUser(username);
 		public List<ServiceMore> serviceMores(int id) => MedicalDAO.serviceMores(id);
+		public void CreateMedical(MedicalRecord record) => MedicalDAO.CreateMedical(record);
 	}
 }

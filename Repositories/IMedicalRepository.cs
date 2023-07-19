@@ -11,5 +11,6 @@ namespace Repositories
 	{
 		List<MedicalRecord> getMedicalbyUser(string username);
 		List<ServiceMore> serviceMores(int id);
+		void CreateMedical(MedicalRecord record);
 	}
 }

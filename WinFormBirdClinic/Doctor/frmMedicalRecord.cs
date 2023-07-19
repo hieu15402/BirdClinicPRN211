@@ -50,16 +50,18 @@ namespace WinFormBirdClinic.Doctor
 
         private void frmMedicalRecord_Load(object sender, EventArgs e)
         {
-            LoadBookingCheckInByDoctor();
+            LoadMedicalRecordCheckInByDoctor();
             LoadService();
         }
 
-        public void LoadBookingCheckInByDoctor()
+        public void LoadMedicalRecordCheckInByDoctor()
         {
             btnSave.Enabled = false;
             btnCreate.Enabled = false;
+
             source = new BindingSource();
-            source.DataSource = recordRepository.GetMedicalRecords();
+            source.DataSource = recordRepository.GetMedicalRecords().OrderBy(r => r.RecordId);
+
             txtRecordId.DataBindings.Clear();
             txtBookingId.DataBindings.Clear();
             txtPatientId.DataBindings.Clear();
@@ -101,15 +103,15 @@ namespace WinFormBirdClinic.Doctor
             bool a = true;
             foreach (var item in list)
             {
-                if (item.ServiceId == serviceRepository.GetServiceById(int.Parse(cboService.SelectedValue.ToString())).ServiceId) a = false;
+                if (item.ServiceId == serviceRepository.getServicebyID(int.Parse(cboService.SelectedValue.ToString())).ServiceId) a = false;
             }
             if (a)
             {
                 ServiceMore serviceMore = new ServiceMore
                 {
-                    Fee = serviceRepository.GetServiceById(int.Parse(cboService.SelectedValue.ToString())).Fee,
+                    Fee = serviceRepository.getServicebyID(int.Parse(cboService.SelectedValue.ToString())).Fee,
                     RecordId = int.Parse(txtRecordId.Text),
-                    ServiceId = serviceRepository.GetServiceById(int.Parse(cboService.SelectedValue.ToString())).ServiceId
+                    ServiceId = serviceRepository.getServicebyID(int.Parse(cboService.SelectedValue.ToString())).ServiceId
                 };
                 recordRepository.AddServiceMore(serviceMore);
                 double totalfee = 0;
@@ -127,7 +129,7 @@ namespace WinFormBirdClinic.Doctor
                 };
                 MedicalRecordDAO.UpdateMedicalRecord(medical);
                 MessageBox.Show("This service add successful.");
-                LoadBookingCheckInByDoctor();
+                LoadMedicalRecordCheckInByDoctor();
                 LoadService();
             }
             else
@@ -152,7 +154,7 @@ namespace WinFormBirdClinic.Doctor
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            LoadBookingCheckInByDoctor();
+            LoadMedicalRecordCheckInByDoctor();   
             LoadService();
         }
 

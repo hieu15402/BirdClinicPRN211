@@ -15,5 +15,6 @@ namespace Repositories
 		Account Login(string username);
 		List<Gender> Gender();
 		List<RegistrationSchedule> getSchedules(DateTime date);
+		string getUsername(string name);
 	}
 }

@@ -85,6 +85,7 @@ namespace WinFormBirdClinic.User
         BindingSource source;
         private void frmUserBooking_Load(object sender, EventArgs e)
         {
+            dtpBooking.MinDate = DateTime.Now;
             LoadService();
             LoadBird();
             LoadDoctor(account_repo.GetAccountsByRole(3));

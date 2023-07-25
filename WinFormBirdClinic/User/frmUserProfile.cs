@@ -84,6 +84,7 @@ namespace WinFormBirdClinic.User
 		BindingSource source;
 		private void frmUserProfile_Load(object sender, EventArgs e)
 		{
+			dtpBirth.MaxDate = DateTime.Now;
 			LoadGender();
 			LoadInfo(repo.Login(Username));
 		}

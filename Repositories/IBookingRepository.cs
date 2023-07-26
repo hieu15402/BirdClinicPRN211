@@ -18,6 +18,8 @@ namespace Repositories
 		public List<Booking> getBookingByDoctor(string doctor);
         List<Booking> getBookingUser(string username);
         void CreateBooking(Booking booking);
+		Booking getBookingByPatient(int patientId);
+
     }
 		
 	

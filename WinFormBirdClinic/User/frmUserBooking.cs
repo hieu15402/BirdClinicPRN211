@@ -108,27 +108,27 @@ namespace WinFormBirdClinic.User
                 dgvBooking.DataSource = null;
                 dgvBooking.DataSource = source;
 
-				txtFee.DataBindings.Add("Text", source, "Fee");
-				cbBird.DataBindings.Add("Text", source, "Patiend.BirdName");
-				cbDoctor.DataBindings.Add("Text", source, "UsernameDoctor");
-				cbService.DataBindings.Add("Text", source, "Service.ServiceName");
-				dtpBooking.DataBindings.Add("Text", source, "BookingDate");
+                txtFee.DataBindings.Add("Text", source, "Fee");
+                cbBird.DataBindings.Add("Text", source, "Patiend.BirdName");
+                cbDoctor.DataBindings.Add("Text", source, "UsernameDoctor");
+                cbService.DataBindings.Add("Text", source, "Service.ServiceName");
+                dtpBooking.DataBindings.Add("Text", source, "BookingDate");
 
-			}
-			catch (Exception ex) { }
-		}
-		IAccountRepository account_repo = new AccountRepository();
-		IServiceRepository ser_repo = new ServiceRepository();
-		IPatientBirdRepository patient_repo = new PatientBirdRepository();
-		public void LoadDoctor(List<Account> list)
-		{
-			try
-			{
-				cbDoctor.DataSource = list;
-				cbDoctor.DisplayMember = "Name";
-				cbDoctor.SelectedValue = "Username";
-			}
-			catch (Exception ex) { }
+            }
+            catch (Exception ex) { }
+        }
+        IAccountRepository account_repo = new AccountRepository();
+        IServiceRepository ser_repo = new ServiceRepository();
+        IPatientBirdRepository patient_repo = new PatientBirdRepository();
+        public void LoadDoctor(List<Account> list)
+        {
+            try
+            {
+                cbDoctor.DataSource = list;
+                cbDoctor.DisplayMember = "Name";
+                cbDoctor.SelectedValue = "Username";
+            }
+            catch (Exception ex) { }
 
         }
         public void LoadService()
@@ -154,27 +154,56 @@ namespace WinFormBirdClinic.User
             catch (Exception ex) { }
         }
 
-		private void button2_Click(object sender, EventArgs e)
-		{
-			DateTime date = dtpBooking.Value;
-			string Date = date.ToString("yyyy-MM-dd");
-			try
-			{
-				var b = new Booking
-				{
-					BookingDate = date,
-					UsernameDoctor = acc.getUsername(cbDoctor.Text),
-					UsernameCustomer = Username,
-					ServiceId = int.Parse(cbService.SelectedValue.ToString()),
-					Fee = double.Parse(txtFee.Text),
-					PatiendId = int.Parse(cbBird.SelectedValue.ToString()),
-					StatusId = 1,
-				};
-				repo.CreateBooking(b);
-				LoadBooking(repo.getBookingUser(Username));
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DateTime date = dtpBooking.Value;
+            string Date = date.ToString("yyyy-MM-dd");
+            var booking = repo.getBookingByPatient(int.Parse(cbBird.SelectedValue.ToString()));
+            if (booking != null)
+            {
+                if (booking.StatusId == 5 || booking.StatusId == 6)
+                {
+                    try
+                    {
+                        var b = new Booking
+                        {
+                            BookingDate = date,
+                            UsernameDoctor = acc.getUsername(cbDoctor.Text),
+                            UsernameCustomer = Username,
+                            ServiceId = int.Parse(cbService.SelectedValue.ToString()),
+                            Fee = double.Parse(txtFee.Text),
+                            PatiendId = int.Parse(cbBird.SelectedValue.ToString()),
+                            StatusId = 1,
+                        };
+                        repo.CreateBooking(b);
+                        LoadBooking(repo.getBookingUser(Username));
+                    }
+                    catch (Exception ex) { }
+                }
+                else
+                {
+                    MessageBox.Show("Patient has an appointment");
+                }
             }
-            catch (Exception ex) { }
+            else
+            {
+                try
+                {
+                    var b = new Booking
+                    {
+                        BookingDate = date,
+                        UsernameDoctor = acc.getUsername(cbDoctor.Text),
+                        UsernameCustomer = Username,
+                        ServiceId = int.Parse(cbService.SelectedValue.ToString()),
+                        Fee = double.Parse(txtFee.Text),
+                        PatiendId = int.Parse(cbBird.SelectedValue.ToString()),
+                        StatusId = 1,
+                    };
+                    repo.CreateBooking(b);
+                    LoadBooking(repo.getBookingUser(Username));
+                }
+                catch (Exception ex) { }
+            }
         }
 
         private void dtpBooking_ValueChanged(object sender, EventArgs e)

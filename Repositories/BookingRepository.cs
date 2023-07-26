@@ -23,6 +23,7 @@ namespace Repositories
         }
         public List<Booking> getBookingUser(string user) => BookingDAO.getBookingUser(user);
         public void CreateBooking(Booking booking) => BookingDAO.CreateBooking(booking);
+		public Booking getBookingByPatient(int patientId) => BookingDAO.getBookingByPatient(patientId);
     }
 		
 	

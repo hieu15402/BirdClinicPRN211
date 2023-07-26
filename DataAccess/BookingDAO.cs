@@ -152,6 +152,21 @@ namespace DataAccess
             }
             catch (Exception e) { }
         }
+		public static Booking getBookingByPatient(int patientId)
+		{
+			var booking = new Booking();
+			try
+			{
+				using(var context = new BirdClinicContext())
+				{
+					booking = context.Bookings.SingleOrDefault(b => b.PatiendId == patientId);
+				}
+			}catch (Exception ex)
+			{
+
+			}
+			return booking;
+		}
     }
 		
 	}
